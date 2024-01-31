@@ -2,7 +2,7 @@ import './styles.less'
 import Star from '../assets/star.svg'
 
 export function Rating({num}) {
-  const url = "https://shift-backend.onrender.com";
+  let star = Math.trunc(num/2);
 
   return (
     <>
