@@ -1,8 +1,4 @@
 import './styles.less'
 
-export function Button({word}) {
-  return (
-    <>
-        <div className="button">{word}</div>
-    </>)
-}
+export const Button = ({children}) => 
+  <button className="button">{children}</button>

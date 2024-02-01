@@ -13,10 +13,10 @@ export function Poster({data}) {
         <div className="poster__img">
           <img src={url+film.img} alt="poster"></img>
         </div>
-        <div className="poster__title">{film.name}</div>
-        <div className="poster__subtitle">{film.description}</div>
+        <h className="poster__title">{film.name}</h>
+        <p className="poster__subtitle">{film.description}</p>
         <Rating num={film.userRatings.kinopoisk} />
-        <Button word={"Подробнее"}/>
+        <Button>Подробнее</Button>
       </div>
     </>)
 }

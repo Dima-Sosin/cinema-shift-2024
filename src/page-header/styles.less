@@ -11,16 +11,12 @@
         flex-direction: row;
         justify-content: space-between;
     }
-    &__left{
+    &__left, &__right{
         display: flex;
         align-items: center;
-    }
-    &__right{
-        display: flex;
-        align-items: center;
+        gap: 32px;
     }
     &__link{
-        margin-left: 32px;
         font-weight: 500;
         &:hover{
             color:#9534D2;
@@ -28,7 +24,6 @@
         }
     }
     &__exit{
-        margin-left:16px;
         font-weight: 500;
         &:hover{
             color:#9534D2;

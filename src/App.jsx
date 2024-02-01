@@ -2,8 +2,7 @@ import './App.css'
 import {PageHeader} from './page-header'
 import { Afisha } from './afisha'
 
-function App() {
-
+export default function App() {
   return (
     <>
       <PageHeader/>
@@ -11,5 +10,3 @@ function App() {
     </>
   )
 }
-
-export default App
