@@ -19,7 +19,7 @@ export function Afisha() {
             <ul className={styles.cards}>
                 {films.map((film) => 
                     <li className={styles.card} key={film.id}>
-                        <Poster data={{film}}/>
+                        <Poster film={film}/>
                     </li>)
                 }
             </ul>

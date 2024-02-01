@@ -7,9 +7,9 @@ export function Rating({num}) {
 
   let arr = [];
   for (let i = 0; i < star; i++)
-    arr.push(<Star color={"#FFB219"}/>);
+    arr.push(<Star color={"#FFB219"}/>);  //золотые звезды
   for (let i = star; i < 5; i++)
-    arr.push(<Star color={"#CED2DA"}/>);
+    arr.push(<Star color={"#CED2DA"}/>);  //серые звезды
 
   return (
     <div className={styles.rating}>

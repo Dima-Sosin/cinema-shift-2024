@@ -7,9 +7,9 @@ export function PageHeader() {
     <div className={styles.pageHeader}>
         <div className={styles.container}>
             <div className={styles.left}>
-                <img  src={logo} alt="logo" />
-                <a className={styles.link}>Профиль</a>
-                <a className={styles.link}>Билеты</a>
+                <img src={logo} alt="logo" />
+                <a className={styles.link} href="#">Профиль</a>
+                <a className={styles.link} href="#">Билеты</a>
             </div>
             <div className={styles.right}>
                 <img  src={exit} alt="exit" />

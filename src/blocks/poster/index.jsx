@@ -1,10 +1,8 @@
 import styles from './styles.module.css'
-import { Rating} from '../rating';
+import { Rating} from '../rating/index.jsx';
 import { Button } from '../button';
 
-export function Poster({data}) {
-  const {film} = data;
-
+export function Poster({film}) {
   const url = "https://shift-backend.onrender.com";
 
   return (
