@@ -1,4 +1,4 @@
-import './styles.less'
+import styles from './styles.module.css'
 import {useState, useEffect} from 'react'
 import { Poster } from '../poster';
 
@@ -13,12 +13,12 @@ export function Afisha() {
     }, []);
 
   return (
-    <div className="afisha">
-        <div className="afisha__container">
-            <h1 className="afisha__title">Афиша</h1>
-            <ul className="afisha__cards">
+    <div className={styles.afisha}>
+        <div className={styles.container}>
+            <h1 className={styles.title} >Афиша</h1>
+            <ul className={styles.cards}>
                 {films.map((film) => 
-                    <li className="afisha__card" key={film.id}>
+                    <li className={styles.card} key={film.id}>
                         <Poster data={{film}}/>
                     </li>)
                 }

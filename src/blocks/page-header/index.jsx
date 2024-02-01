@@ -1,19 +1,19 @@
-import './styles.less'
+import styles from './styles.module.css'
 import logo from '../../assets/logo.svg';
 import exit from '../../assets/exit.svg';
 
 export function PageHeader() {
   return (
-    <div className="page-header">
-        <div className="page-header__container">
-            <div className="page-header__left">
+    <div className={styles.pageHeader}>
+        <div className={styles.container}>
+            <div className={styles.left}>
                 <img  src={logo} alt="logo" />
-                <a className="page-header__link">Профиль</a>
-                <a className="page-header__link">Билеты</a>
+                <a className={styles.link}>Профиль</a>
+                <a className={styles.link}>Билеты</a>
             </div>
-            <div className="page-header__right">
+            <div className={styles.right}>
                 <img  src={exit} alt="exit" />
-                <a className="page-header__exit">Выйти</a>
+                <a className={styles.link}>Выйти</a>
             </div>
         </div>
     </div>)

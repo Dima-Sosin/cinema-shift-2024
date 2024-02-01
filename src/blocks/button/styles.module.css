@@ -13,10 +13,10 @@
     padding: 16px 32px;
     border-radius: 16px;
     background:#9534D2;
-    &:hover{
-        background:#a03de0;
-    }
-    &:active{
-        background:#7428a1;
-    }
+}
+.button:hover{
+    background:#a03de0;
+}
+.button:active{
+    background:#7428a1;
 }

@@ -1,4 +1,4 @@
-import './styles.less'
+import styles from './styles.module.css'
 
 export const Button = ({children}) => 
-  <button className="button">{children}</button>
+  <button className={styles.button}>{children}</button>
