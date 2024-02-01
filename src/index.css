@@ -22,7 +22,7 @@ a {
   line-height: 24px;
 }
 a:hover {
-  color:#9534D2;
+  color: #9534d2;
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@ body {
   min-height: 100vh;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
 

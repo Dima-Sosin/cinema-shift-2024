@@ -1,10 +1,11 @@
-import {PageHeader} from '../blocks/page-header'
-import { Afisha } from '../blocks/afisha'
+import { PageHeader } from "../blocks/page-header";
+import { Afisha } from "../blocks/afisha";
 
 export function AfishaPage() {
-    return(
+  return (
     <>
-        <PageHeader/>
-        <Afisha/>
-    </>)
+      <PageHeader />
+      <Afisha />
+    </>
+  );
 }
