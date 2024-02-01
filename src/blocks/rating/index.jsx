@@ -1,5 +1,5 @@
 import './styles.less'
-import Star from '../assets/star.svg'
+import Star from '../../assets/star.svg'
 
 export function Rating({num}) {
   let star = Math.trunc(num/2);

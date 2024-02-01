@@ -1,12 +1,9 @@
 import './App.css'
-import {PageHeader} from './page-header'
-import { Afisha } from './afisha'
+import { AfishaPage } from './pages/afisha-page.jsx'
 
 export default function App() {
-  return (
-    <>
-      <PageHeader/>
-      <Afisha/>
-    </>
-  )
+  return(
+  <>
+    <AfishaPage/>
+  </>)
 }
