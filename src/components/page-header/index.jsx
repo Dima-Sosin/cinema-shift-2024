@@ -17,7 +17,9 @@ export function PageHeader() {
             </div>
             <div className={styles.right}>
                <img src={exit} alt="exit" />
-               <a className={styles.link}>Выйти</a>
+               <a className={styles.link} href="#">
+                  Выйти
+               </a>
             </div>
          </div>
       </div>
