@@ -3,6 +3,8 @@ import { Rating } from "../rating/index.jsx"
 import { Button } from "../button"
 import { baseUrl } from "../../api/request"
 
+
+
 export function Poster({ film }) {
    const year = () => {
       const len = film.releaseDate.length
@@ -22,7 +24,7 @@ export function Poster({ film }) {
          <h2 className={styles.title}>{film.name}</h2>
          <p className={styles.subtitle}>{film.description}</p>
          <Rating num={film.userRatings.kinopoisk} />
-         <Button>Подробнее</Button>
+         <Button filmId={film.id}>Подробнее</Button>
       </div>
    )
 }

@@ -1,4 +1,4 @@
-import { PageHeader } from "../blocks/page-header"
+import { PageHeader } from "../components/page-header"
 
 export function FilmPage() {
    return (
