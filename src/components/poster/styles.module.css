@@ -1,17 +1,47 @@
 .poster {
    max-width: 300px;
 }
+.poster:hover{
+   cursor:pointer;
+}
 .img {
    width: 100%;
-   height: 300px;
+   height: 450px;
    margin-bottom: 16px;
+   border-radius: 8px;
    overflow: hidden;
    display: flex;
    justify-content: center;
+   position: relative;
    img {
       width: auto;
       height: 100%;
    }
+}
+.block{
+   background-color: #F5F5F8;
+   position:absolute;
+   bottom:0;
+   right:0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 8px 16px;
+   border-radius: 8px 0 0 0;
+}
+.genre{
+   font-family: "Roboto";
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 14px;
+   margin-bottom: 4px;
+}
+.country{
+   font-family: "Roboto";
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 14px;
+
 }
 .title {
    width: 100%;
