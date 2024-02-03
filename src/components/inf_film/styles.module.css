@@ -1,8 +1,7 @@
 .poster {
-   max-width: 300px;
-}
-.poster:hover {
-   cursor: pointer;
+   max-width: 960px;
+   width: 100%;
+   display: flex;
 }
 .img {
    width: 100%;

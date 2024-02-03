@@ -28,8 +28,8 @@
 }
 @media screen and (max-width: 1020px) {
    .left,
-   .right{
-      gap:16px;
+   .right {
+      gap: 16px;
    }
 }
 @media screen and (max-width: 700px) {
