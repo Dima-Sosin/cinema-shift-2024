@@ -23,21 +23,24 @@ export function FilmInf({ num }) {
    return (
       filmD.success == true && (
          <div className={styles.poster}>
-            <div className={styles.img}>
-               <img src={baseUrl + filmD.film.img} alt="poster"></img>
-               <div className={styles.block}>
-                  <p className={styles.genre}>{filmD.film.genres[0]}</p>
-                  <p className={styles.country}>
-                     {filmD.film.country.name}, {year()}
-                  </p>
-               </div>
-            </div>
-            <div className={styles.inf}>
-               <h2 className={styles.title}>
-                  {filmD.film.name}, {filmD.film.ageGenres}
-               </h2>
-               <Rating num={filmD.film.userRatings.kinopoisk} />
-               <p className={styles.subtitle}>{filmD.film.description}</p>
+            <div className={styles.container}>
+                <div className={styles.img}>
+                    <img src={baseUrl + filmD.film.img} alt="poster"></img>
+                    <div className={styles.block}>
+                        <p className={styles.genre}>{filmD.film.genres[0]}</p>
+                        <p className={styles.country}>
+                            {filmD.film.country.name}, {year()}
+                        </p>
+                    </div>
+                </div>
+                <div className={styles.inf}>
+                    <h2 className={styles.title}>
+                        {filmD.film.name}<br/>(Возрастной рейтинг {filmD.film.ageRating})
+                    </h2>
+                    <p className={styles.subtitle}>Дата выхода: {filmD.film.releaseDate}</p>
+                    <Rating num={filmD.film.userRatings.kinopoisk} />
+                    <p className={styles.description}>{filmD.film.description}</p>
+                </div>
             </div>
          </div>
       )
