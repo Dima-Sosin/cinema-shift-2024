@@ -5,32 +5,33 @@ import { baseUrl } from "../../api/request"
 import { useNavigate } from "react-router-dom"
 
 export function Poster({ film }) {
-   const year = () => {
-      const len = film.releaseDate.length
-      const str = film.releaseDate.slice(len - 4)
-      return str
-   }
+  const navigate = useNavigate()
 
-   const navigate = useNavigate()
-   const filmPage = () => {
-      navigate("/cinema/film/" + film.id, { replace: false })
-   }
+  const year = () => {
+    const len = film.releaseDate.length
+    const str = film.releaseDate.slice(len - 4)
+    return str
+  }
 
-   return (
-      <div className={styles.poster}>
-         <div className={styles.img}>
-            <img src={baseUrl + film.img} alt="poster"></img>
-            <div className={styles.block}>
-               <p className={styles.genre}>{film.genres[0]}</p>
-               <p className={styles.country}>
-                  {film.country.name}, {year()}
-               </p>
-            </div>
-         </div>
-         <h2 className={styles.title}>{film.name}</h2>
-         <p className={styles.subtitle}>{film.description}</p>
-         <Rating num={film.userRatings.kinopoisk} />
-         <Button onClick={filmPage}>Подробнее</Button>
+  const filmPage = () => {
+    navigate("/film/" + film.id, { replace: false })
+  }
+
+  return (
+    <div className={styles.poster} onClick={filmPage}>
+      <div className={styles.img}>
+        <img src={baseUrl + film.img} alt="poster" />
+        <div className={styles.block}>
+          <p className={styles.genre}>{film.genres[0]}</p>
+          <p className={styles.country}>
+            {film.country.name}, {year()}
+          </p>
+        </div>
       </div>
-   )
+      <h2 className={styles.title}>{film.name}</h2>
+      <p className={styles.subtitle}>{film.originalName}</p>
+      <Rating kin={film.userRatings.kinopoisk} imdb={film.userRatings.imdb} />
+      <Button>Подробнее</Button>
+    </div>
+  )
 }
