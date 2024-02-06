@@ -1,16 +1,25 @@
 .poster {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: 72px;
-}
-.container {
+  flex-direction: column;
   max-width: 960px;
   padding: 0 30px;
+  margin: 0 auto 48px auto;
+}
+.btnBack{
+  color: #637083;
+  width:80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 24px 24px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.container {
   display: flex;
   justify-content: space-between;
   gap: 32px;
-}
+} 
 .img {
   min-width: 300px;
   max-width: 300px;

@@ -1,11 +1,14 @@
 import styles from "./styles.module.css"
 import { Rating } from "../rating"
 import { useState, useEffect } from "react"
+import { useNavigate } from 'react-router-dom';
 import { request } from "../../api/request"
 import { baseUrl } from "../../api/request"
+import buttonBack from "../../assets/back.svg"
 
 export function FilmInf({ num }) {
   const [filmD, setFilmData] = useState({})
+  const nav = useNavigate();
 
   useEffect(() => {
     request
@@ -45,6 +48,9 @@ export function FilmInf({ num }) {
   return (
     filmD.success == true && (
       <div className={styles.poster}>
+        <a className={styles.btnBack} onClick={() => nav(-1)}>
+          <img src={buttonBack} alt="button back" /> <p>Назад</p>
+        </a>
         <div className={styles.container}>
           <div className={styles.img}>
             <img src={baseUrl + filmD.film.img} alt="poster" />
