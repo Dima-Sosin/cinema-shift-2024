@@ -5,3 +5,34 @@
     padding: 0 30px;
     margin: 0 auto 48px auto;
 }
+.title{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+}
+.dates{
+    background-color:#F5F5F8;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding:2px;
+}
+.date{
+    background-color:#F5F5F8;
+    padding: 10px 16px;
+    border-radius: 14px;
+    border:none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color:#637083;
+}
+.date:hover{
+
+}
+.date:focus{
+    background-color:#ffffff;
+    color:#141C24;
+}
