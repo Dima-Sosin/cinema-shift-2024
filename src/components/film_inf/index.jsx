@@ -6,13 +6,13 @@ import { request } from "../../api/request"
 import { baseUrl } from "../../api/request"
 import buttonBack from "../../assets/back.svg"
 
-export function FilmInf({ num }) {
+export function FilmInf({ filmId }) {
   const [filmD, setFilmData] = useState({})
   const nav = useNavigate();
 
   useEffect(() => {
     request
-      .fetch("/cinema/film/" + num)
+      .fetch("/cinema/film/" + filmId)
       .then((response) => response.json())
       .then((data) => setFilmData(data))
   }, [])

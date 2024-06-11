@@ -16,9 +16,9 @@ export function Afisha() {
   }, [])
 
   return (
-    <div className={styles.afisha}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Афиша</h1>
+    <div className="page">
+      <div className="container">
+        <h1>Афиша</h1>
         <ul className={styles.cards}>
           {films.map((film) => (
             <li className={styles.card} key={film.id}>

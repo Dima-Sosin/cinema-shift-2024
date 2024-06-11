@@ -3,13 +3,13 @@ import { useState, useEffect } from "react"
 import { request } from "../../api/request"
 import { Hall } from "./hall"
 
-export function Schedule({ num }) {
+export function Schedule({ filmId }) {
   const [filmS, setFilmSchedule] = useState([])
   const [halls, setHalls] = useState([])
 
   useEffect(() => {
     request
-      .fetch("/cinema/film/" + num + "/schedule")
+      .fetch("/cinema/film/" + filmId + "/schedule")
       .then((response) => response.json())
       .then((data) => setFilmSchedule(data))
   }, [])
