@@ -1,33 +1,24 @@
 import styles from "./styles.module.css"
-import { useState, useEffect } from "react"
+import { Place } from "../place/index"
 
-export function Hall({halls}) {
-  const [arr, setArr] = useState([])
-
-  useEffect(() => {
-    const arrHalls = () => {
-      let arrH = []
-      let i = 0;
-      halls.map((seance) => {
-        if(seance.hall.name !== arrH[0]){
-          arrH.unshift(seance.hall.name)
-        }
-      })
-      setArr(arrH)
-    }
-  }, [])
-
-  return (
+export const Hall = ({hall}) => {
+    return (
     <div className={styles.hall}>
-      {arr.map((arrHall) => {
-        return(<div><h2>{arrHall}</h2>
-          <div>{halls.map((hall) => {
-            if(hall.name == arrHall){
-              return(<div>{hall.time}</div>)
-            }
-          })}</div>
-        </div>)
-      })}
-    </div>
-  )
+        <h2 className={styles.title}>Выбор места</h2>
+        <span className={styles.screen_title}>Экран</span>
+        <div className={styles.screen} />
+        <span>Ряд</span>
+        {hall.places.map((row, i) => (
+            <div key={i} className={styles.row}>
+                <span className={styles.row_name}>{i+1}</span>
+                {row.map((place, j) => {
+                    let dis = false;
+                    if(place.type === "BLOCKED"){
+                        dis = true;
+                    }
+                    return <Place number={j+1} disabled={dis}/>
+                })}
+            </div>
+        ))}
+    </div>)
 }

@@ -18,8 +18,12 @@
     align-items: center;
     border-radius: 16px;
     padding:2px;
+    margin-bottom: 24px;
 }
-.date{
+.input{
+    appearance: none;
+}
+.date_label{
     background-color:#F5F5F8;
     padding: 10px 16px;
     border-radius: 14px;
@@ -29,10 +33,56 @@
     line-height: 20px;
     color:#637083;
 }
-.date:hover{
-
+.input:checked ~ .date_label{
+    background-color:#9534d2;
+    color:#ffffff;
 }
-.date:focus{
-    background-color:#ffffff;
-    color:#141C24;
+.halls{
+    display: flex;
+    flex-direction: column;
+}
+.seances{
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0 24px;
+}
+.element{
+    margin: 0 2px;
+}
+.time_label{
+    background-color:#F5F5F8;
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 1px solid lightgray;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color:#637083;
+}
+.input:checked ~ .time_label{
+    background-color:#9534d2;
+    color:#ffffff;
+}
+.row_name{
+    display: inline-block;
+    width:30px;
+    font-size: 14px;;
+}
+.screen_title{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin:8px;
+}
+.screen{
+    display: inline-block;
+    width: 100%;
+    height:4px;
+    background-color: #CED2DA;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+.hall{
+    display: inline-block;
+    margin-top:24px;
 }
