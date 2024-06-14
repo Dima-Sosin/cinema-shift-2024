@@ -1,0 +1,17 @@
+.ticket_inf{
+    width:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.block{
+    margin-bottom: 24px;
+}
+.title{
+    font-size: 12px;
+    line-height: 16px;
+    color: #637083;
+}
+.inf{
+
+}

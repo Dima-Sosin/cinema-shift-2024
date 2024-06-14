@@ -1,0 +1,40 @@
+.choice_place{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.hall{
+    display: flex;
+    flex-direction: column;
+    margin-top:24px;
+}
+.title{
+    width:100%;
+    text-align: left;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+}
+.row{
+    display: flex;
+}
+.row_name{
+    display: flex;
+    align-items: center;
+    width:30px;
+    font-size: 14px;;
+}
+.screen_title{
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    margin:8px;
+}
+.screen{
+    height:4px;
+    width:100%;
+    background-color: #CED2DA;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}

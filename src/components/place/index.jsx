@@ -1,7 +1,13 @@
 import styles from "./styles.module.css"
 
-export const Place = ({ number, disabled, onClick }) => (
-  <button className={styles.place} disabled={disabled} onClick={onClick}>
-    {number}
-  </button>
+export const Place = ({ row, number, disabled, onClick }) => (
+    <div className={styles.place}>
+        <input
+            type="checkbox"
+            id={String(row) + String(number)}
+            disabled={disabled}
+            onClick={onClick}
+        />
+        <label for={String(row) + String(number)}>{number}</label>
+    </div>
 )
