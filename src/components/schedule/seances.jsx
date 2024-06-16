@@ -3,8 +3,8 @@ import { useState } from "react"
 import { Hall } from "../hall/index"
 
 export const Seances = ({ seances, date }) => {
-    const [hall, setHall] = useState(seances[0].hall)
-    const [time, setTime] = useState(seances[0].time)
+    const [hall, setHall] = useState()
+    const [time, setTime] = useState()
     console.log(seances)
     return (
         <div className={styles.halls}>

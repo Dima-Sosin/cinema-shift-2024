@@ -15,7 +15,6 @@ export function Schedule({ filmId }) {
             .then((data) => {
                 setFilmSchedule(data)
                 setSeances(data.schedules[0].seances)
-                setDate(data.schedules[0].date)
             })
     }, [])
 
@@ -48,7 +47,6 @@ export function Schedule({ filmId }) {
                         )
                     })}
                 </div>
-                {/* {document.getElementById(filmS.schedules[0].date)[0].checked = true} */}
                 <Seances seances={seances} date={date}/>
             </div>
         )

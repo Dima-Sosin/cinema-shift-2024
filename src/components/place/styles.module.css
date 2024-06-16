@@ -1,6 +1,7 @@
 .place{
     display: inline-block;
 }
+
 .place > input{
     display: none;
 }
@@ -16,6 +17,9 @@
     margin: 12px;
     color:#712D9C;
     position: relative;
+}
+.place > label:hover{
+    cursor: pointer;
 }
 .place > label:before{
     content:'';
