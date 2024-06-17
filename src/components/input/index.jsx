@@ -1,12 +1,12 @@
 import styles from "./styles.module.css"
 
-export const Input = ({ text, type, id, name, placeholder, onClick }) => {
+export const Input = ({ text, type, id, name, placeholder, defaultValue, onChange}) => {
     
     return (
         <div className={styles.container}>
             <label 
                 className={styles.label}
-                for={id}
+                htmlFor={id}
             >
                 {text}
             </label>
@@ -16,7 +16,8 @@ export const Input = ({ text, type, id, name, placeholder, onClick }) => {
                 id={id}
                 name={name}
                 placeholder={placeholder}
-                onClick={onClick}
+                defaultValue={defaultValue}
+                onChange={onChange}
             />
         </div>
     )

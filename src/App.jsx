@@ -7,7 +7,11 @@ import { TicketsPage } from "./pages/tickets-page"
 import { FilmPage } from "./pages/film-page"
 
 export default function App() {
-
+  localStorage.setItem('lastName', "Иванов")
+  localStorage.setItem('firstName', "Иван")
+  localStorage.setItem('patronymic', "Иванович")
+  localStorage.setItem('telephone', "+79131234567")
+  localStorage.setItem('email', "IvanovIvan@gmail.com")
   return (
     <>
       <PageHeader />

@@ -21,12 +21,11 @@ export function Schedule({ filmId }) {
     return (
         filmS.success == true && (
             <div className={styles.schedule}>
-                {console.log(filmS.schedules)}
                 <h2 className={styles.title}>Расписание</h2>
                 <div className={styles.dates}>
-                    {filmS.schedules.map((dat) => {
+                    {filmS.schedules.map((dat, i) => {
                         return (
-                            <div>
+                            <div key={i}>
                                 <input
                                     type="radio"
                                     id={dat.date}
@@ -38,7 +37,7 @@ export function Schedule({ filmId }) {
                                     }}
                                 />
                                 <label
-                                    for={dat.date}
+                                    htmlFor={dat.date}
                                     className={styles.date_label}
                                 >
                                     {dat.date}

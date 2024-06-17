@@ -8,6 +8,6 @@ export const Place = ({ row, number, disabled, checked, onClick }) => (
             disabled={disabled}
             onClick={onClick}
         />
-        <label for={String(row) + String(number)}>{number}</label>
+        <label htmlFor={String(row) + String(number)}>{number}</label>
     </div>
 )

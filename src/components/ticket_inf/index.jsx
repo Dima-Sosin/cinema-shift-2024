@@ -2,7 +2,6 @@ import styles from "./styles.module.css"
 import { Button } from "../button"
 
 export const TicketInf = ({hall, date_time, places, sum }) => {
-    console.log(places)
     let hall_rus = "Красный"
     if(hall === "Green")
         hall_rus="Зеленый"
@@ -21,12 +20,12 @@ export const TicketInf = ({hall, date_time, places, sum }) => {
             <div className={styles.block}>
                 <span className={styles.title}>Места</span>
                 <div className={styles.inf}>
-                    {places?.map((el) => (
-                        <div>
+                    {places?.map((el, i) => (
+                        <div key={i}>
                             <span>{el.row} ряд - </span>
                             <span>
-                                {el.num?.map((place) => (
-                                    <span className={styles.elem}>{place}</span>
+                                {el.num?.map((place, j) => (
+                                    <span className={styles.elem} key={j}>{place}</span>
                                 ))}
                             </span><br/>
                         </div>

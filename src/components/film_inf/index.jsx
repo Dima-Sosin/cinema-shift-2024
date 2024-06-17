@@ -77,13 +77,13 @@ export function FilmInf({ filmId }) {
             <p className={styles.text}>
               <span className={styles.span}>Актеры: </span>
               {filmD.film.actors.map((actor) => (
-                <span className={styles.elem}>{actor.fullName}</span>
+                <span className={styles.elem} key={actor.fullName}>{actor.fullName}</span>
                 ))}
             </p>
             <p className={styles.text}>
               <span className={styles.span}>Продюссеры: </span>
               {filmD.film.directors.map((director) => (
-                <span className={styles.elem}>{director.fullName}</span>
+                <span className={styles.elem} key={director.fullName}>{director.fullName}</span>
               ))}
             </p>
             <p className={styles.description}>

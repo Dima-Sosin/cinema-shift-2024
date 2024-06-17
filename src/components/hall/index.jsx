@@ -78,6 +78,7 @@ export const Hall = ({ hall, date_time }) => {
                                 }
                                 return (
                                     <Place
+                                        key={j}
                                         row={i + 1}
                                         number={j + 1}
                                         disabled={dis}
