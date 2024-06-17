@@ -88,6 +88,12 @@
 .span {
   font-weight: 700;
 }
+.elem::after{
+  content: ", ";
+}
+.elem:last-child::after{
+  content: ".";
+}
 .description {
   text-wrap: wrap;
   color: #344051;

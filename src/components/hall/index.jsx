@@ -5,17 +5,18 @@ import { TicketInf } from "../ticket_inf"
 
 export const Hall = ({ hall, date_time }) => {
     const [isLoad, setIsLoad] = useState(false)
+    
     useEffect(() =>{
-        if((hall != undefined) && (date_time != undefined))
+        if((hall != undefined) && (date_time.date != undefined) && (date_time.time != undefined))
             setIsLoad(true)
         setPlaces([])
         setSum(0)
     }, [hall, date_time])
-    
+
     const [places, setPlaces] = useState([])
     const [sum, setSum] = useState(0)
 
-    const add_deletePlaces = (isCheck, row, num, price) => {
+    const addDeletePlaces = (isCheck, row, num, price) => {
         setPlaces((prevPlaces) => {
             let updatedPlaces = [...prevPlaces]
             if (isCheck) {
@@ -80,7 +81,7 @@ export const Hall = ({ hall, date_time }) => {
                                         row={i + 1}
                                         number={j + 1}
                                         disabled={dis}
-                                        onClick={(e) => add_deletePlaces(e.target.checked, i + 1, j + 1, place.price,)}
+                                        onClick={(e) => addDeletePlaces(e.target.checked, i + 1, j + 1, place.price)}
                                     />
                                 )
                             })}

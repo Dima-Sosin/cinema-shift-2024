@@ -13,5 +13,15 @@
     color: #637083;
 }
 .inf{
-
+    color: #141C24;
+}
+.elem::after{
+    content: ", ";
+}.elem:last-child::after{
+    content: "";
+}
+.price{
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
 }

@@ -26,7 +26,7 @@ export const TicketInf = ({hall, date_time, places, sum }) => {
                             <span>{el.row} ряд - </span>
                             <span>
                                 {el.num?.map((place) => (
-                                    <span>{place}, </span>
+                                    <span className={styles.elem}>{place}</span>
                                 ))}
                             </span><br/>
                         </div>
@@ -34,7 +34,7 @@ export const TicketInf = ({hall, date_time, places, sum }) => {
                 </div> 
             </div>
             <div className={styles.block}>
-                <div>Сумма: {sum} ₽</div>
+                <div className={styles.price}>Сумма: {sum} ₽</div>
             </div>
             <Button>Купить</Button>
         </div>
