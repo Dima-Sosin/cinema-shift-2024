@@ -7,7 +7,7 @@ export const Seances = ({ seances, date }) => {
     const [time, setTime] = useState()
     return (
         <div className={styles.halls}>
-            <span>Красный зал</span>
+            <span className={styles.subtitle}>Красный зал</span>
             <div className={styles.seances}>
                 {seances.map((seance, i) => {
                     if (seance.hall.name === "Red")
@@ -31,7 +31,7 @@ export const Seances = ({ seances, date }) => {
                 })}
             </div>
 
-            <span>Зеленый зал</span>
+            <span className={styles.subtitle}>Зеленый зал</span>
             <div className={styles.seances}>
                 {seances.map((seance, i) => {
                     if (seance.hall.name === "Green")
@@ -55,7 +55,7 @@ export const Seances = ({ seances, date }) => {
                 })}
             </div>
 
-            <span>Синий зал</span>
+            <span className={styles.subtitle}>Синий зал</span>
             <div className={styles.seances}>
                 {seances.map((seance, i) => {
                     if (seance.hall.name === "Blue")

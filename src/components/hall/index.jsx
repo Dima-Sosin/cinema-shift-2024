@@ -67,7 +67,7 @@ export const Hall = ({ hall, date_time }) => {
                 <div className={styles.hall}>
                     <span className={styles.screen_title}>Экран</span>
                     <div className={styles.screen} />
-                    <span>Ряд</span>
+                    <span className={styles.row_title}>Ряд</span>
                     {hall.places.map((row, i) => (
                         <div key={i} className={styles.row}>
                             <span className={styles.row_name}>{i + 1}</span>

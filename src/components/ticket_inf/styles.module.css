@@ -25,3 +25,23 @@
     line-height: 24px;
     font-weight: 600;
 }
+@media (max-width:1019px){
+    .ticket_inf{
+        margin-top: 20px;
+    }
+    .block{
+        text-align: center;
+    }
+}
+@media (max-width:767px){
+    .inf{
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+}
+@media (max-width:426px){
+    .inf{
+        color: #141C24;
+    }
+}

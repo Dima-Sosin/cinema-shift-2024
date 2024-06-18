@@ -80,9 +80,7 @@
 }
 .text {
   color: #344051;
-  font-size: 14px;
   font-weight: 400;
-  line-height: 20px;
   margin-bottom: 16px;
 }
 .span {
@@ -101,9 +99,47 @@
   font-weight: 400;
   line-height: 24px;
 }
-@media screen and (max-width: 700px) {
+@media (max-width: 1019px) {
+  .poster {
+    padding: 0 20px;
+  }
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+    margin-bottom: 4px;
+  }
+  .text {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+  .description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 768px) {
   .container {
     flex-direction: column;
     align-items: center;
+  }
+}
+@media (max-width: 426px) {
+  .poster {
+    padding: 0 10px;
+  }
+  .title {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 4px;
+  }
+  .text {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 16px;
+  }
+  .description {
+    font-size: 12px;
+    line-height: 16px;
   }
 }

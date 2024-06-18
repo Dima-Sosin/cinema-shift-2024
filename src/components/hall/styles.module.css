@@ -16,14 +16,19 @@
     line-height: 32px;
     margin: 24px 0;
 }
+.row_title{
+    margin-left:-20px;
+    font-size: 14px;
+}
 .row{
     display: flex;
+    position: relative;
 }
 .row_name{
-    display: flex;
-    align-items: center;
-    width:30px;
-    font-size: 14px;;
+    position:absolute;
+    top:9px;
+    left:-20px;
+    font-size: 14px;
 }
 .screen_title{
     font-size: 12px;
@@ -37,4 +42,29 @@
     background-color: #CED2DA;
     border-radius: 16px;
     margin-bottom: 24px;
+}
+@media (max-width: 1019px){
+    .choice_place{
+        flex-direction: column;
+        align-items: center;
+    }
+    .row_name{
+        font-size: 12px;
+    }
+}
+@media (max-width:767px){
+    .title{
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+    .row_title{
+        margin-left:-14px;
+        font-size: 10px;
+    }
+    .row_name{
+        top:0;
+        left:-14px;
+        font-size: 10px;
+    }
 }

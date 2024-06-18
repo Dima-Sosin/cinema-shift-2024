@@ -21,7 +21,7 @@ export function ProfilePage() {
     return (
         <div className="page">
             <div className="container">
-                <form>
+                <form className="form">
                     <h1>Профиль</h1>
                     <Input
                         text={"Фамилия"}

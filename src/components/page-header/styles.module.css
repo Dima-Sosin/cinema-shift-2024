@@ -18,22 +18,40 @@
   align-items: center;
   gap: 32px;
 }
+.block{
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  gap:16px;
+}
 .link {
   font-weight: 500;
-  text-decoration: none;
+  
 }
 .link:hover {
   color: #9534d2;
   cursor: pointer;
 }
-@media screen and (max-width: 1020px) {
+@media (max-width: 1019px) {
   .left,
   .right {
-    gap: 16px;
+    gap: 30px;
   }
 }
-@media screen and (max-width: 700px) {
+@media (max-width: 700px) {
   .container {
     padding: 0 20px;
+  }
+  .link{
+    display: none;
+  }
+  .block:before{
+    content:'';
+    position:absolute;
+    top:-10px;
+    left:-10px;
+    width: 40px;
+    height:40px;
   }
 }

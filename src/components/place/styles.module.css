@@ -1,7 +1,6 @@
 .place{
     display: inline-block;
 }
-
 .place > input{
     display: none;
 }
@@ -36,4 +35,24 @@
 .place > input:disabled ~ label{
     color:lightgray;
     background: lightgray;
+}
+@media (max-width: 767px){
+    .place > label{
+        width: 10px;
+        height: 10px;
+        margin: 6px;
+        font-size: 8px;
+    }
+    .place > label:before{
+        content:'';
+        position:absolute;
+        top:-6px;
+        right: -6px;
+        width: 22px;
+        height:22px;
+    }
+    .place > input:checked ~ label{
+        color:#ffffff;
+        box-shadow: 0 0 0 6px #712D9C;
+    }
 }
