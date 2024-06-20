@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 export const Star = ({ color }) => (
   <svg
@@ -13,4 +13,4 @@ export const Star = ({ color }) => (
       fill={color}
     />
   </svg>
-);
+)
