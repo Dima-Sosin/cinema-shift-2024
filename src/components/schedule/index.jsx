@@ -4,7 +4,6 @@ import { request } from "../../api/request"
 import { Seances } from "./seances"
 
 export function Schedule({ filmId }) {
-    const [check, setCheck] = useState(false)
     const [filmS, setFilmSchedule] = useState([])
     const [seances, setSeances] = useState([])
     const [date, setDate] = useState()
@@ -20,34 +19,28 @@ export function Schedule({ filmId }) {
 
     return (
         filmS.success == true && (
-            <div className={styles.schedule}>
+            <>
                 <h2 className={styles.title}>Расписание</h2>
                 <div className={styles.dates}>
-                    {filmS.schedules.map((dat, i) => {
-                        return (
-                            <div key={i}>
-                                <input
-                                    type="radio"
-                                    id={dat.date}
-                                    name="date"
-                                    className={styles.input}
-                                    onClick={() => {
-                                        setSeances(dat.seances),
-                                        setDate(dat.date)
-                                    }}
-                                />
-                                <label
-                                    htmlFor={dat.date}
-                                    className={styles.date_label}
-                                >
-                                    {dat.date}
-                                </label>
-                            </div>
-                        )
-                    })}
+                    {filmS.schedules.map((dat, i) => (
+                        <div key={i} className={styles.date}>
+                            <input
+                                type="radio"
+                                id={dat.date}
+                                name="date"
+                                onClick={() => {
+                                    setSeances(dat.seances),
+                                    setDate(dat.date)
+                                }}
+                            />
+                            <label htmlFor={dat.date}>
+                                {dat.date}
+                            </label>
+                        </div>
+                    ))}
                 </div>
                 <Seances seances={seances} date={date}/>
-            </div>
+            </>
         )
     )
 }

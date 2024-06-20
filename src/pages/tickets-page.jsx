@@ -1,9 +1,7 @@
-
-
 export function TicketsPage() {
-  return (
-    <>
-      
-    </>
-  )
+    return (
+        <div className="page">
+            <div className="container"></div>
+        </div>
+    )
 }

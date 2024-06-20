@@ -1,16 +1,6 @@
-.pageHeader {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  border-bottom: 1px solid #ced2da;
-}
-.container {
+.page_header {
   display: flex;
   justify-content: space-between;
-  max-width: 960px;
-  padding: 0 30px;
-  width: 100%;
-  margin: 22px 0;
 }
 .left,
 .right {
@@ -22,16 +12,21 @@
   position: relative;
   text-decoration: none;
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap:16px;
-}
-.link {
+  color:#344051;
   font-weight: 500;
-  
 }
-.link:hover {
+.block:hover {
   color: #9534d2;
   cursor: pointer;
+}
+.svg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
 }
 @media (max-width: 1019px) {
   .left,

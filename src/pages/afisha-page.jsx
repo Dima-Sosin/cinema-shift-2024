@@ -1,9 +1,11 @@
 import { Afisha } from "../components/afisha"
 
 export function AfishaPage() {
-  return (
-    <>
-      <Afisha />
-    </>
-  )
+    return (
+        <div className="page">
+            <div className="container">
+                <Afisha />
+            </div>
+        </div>
+    )
 }
