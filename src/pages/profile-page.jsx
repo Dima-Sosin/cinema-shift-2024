@@ -8,6 +8,7 @@ export function ProfilePage() {
     const [patronymic, setPatronymic] = useState(localStorage.getItem("patronymic"))
     const [telephone, setTelephone] = useState(localStorage.getItem("telephone"))
     const [email, setEmail] = useState(localStorage.getItem("email"))
+    const [town, setTown] = useState(localStorage.getItem("town"))
 
     const btnClick = (event) => {
         event.preventDefault()
@@ -16,6 +17,7 @@ export function ProfilePage() {
         localStorage.setItem("patronymic", patronymic)
         localStorage.setItem("telephone", telephone)
         localStorage.setItem("email", email)
+        localStorage.setItem("town", town)
     }
 
     return (
@@ -67,6 +69,15 @@ export function ProfilePage() {
                         placeholder={"Email"}
                         defaultValue={email}
                         onChange={(event) => setEmail(event.target.value)}
+                    />
+                    <Input
+                        text={"Город"}
+                        type={"text"}
+                        id={"town"}
+                        name={"town"}
+                        placeholder={"Город"}
+                        defaultValue={town}
+                        onChange={(event) => setTown(event.target.value)}
                     />
                     <Button onClick={btnClick}>Обновить данные</Button>
                 </form>
