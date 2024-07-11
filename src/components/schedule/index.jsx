@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 import { useState, useEffect } from "react"
-import { request } from "../../api/request"
+import { api } from "../../api/api"
 import { Seances } from "./seances"
 
 export function Schedule({ filmId }) {
@@ -8,9 +8,7 @@ export function Schedule({ filmId }) {
     const [seances, setSeances] = useState([])
     const [date, setDate] = useState()
     useEffect(() => {
-        request
-            .fetch("/cinema/film/" + filmId + "/schedule")
-            .then((response) => response.json())
+        api.get("/cinema/film/" + filmId + "/schedule")
             .then((data) => {
                 setFilmSchedule(data)
                 setSeances(data.schedules[0].seances)

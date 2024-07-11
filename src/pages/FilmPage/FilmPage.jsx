@@ -1,7 +1,7 @@
-import { FilmInf } from "../components/film_inf"
-import { Schedule } from "../components/schedule"
+import { FilmInf } from "../../components/film_inf"
+import { Schedule } from "../../components/schedule"
 import { useParams } from "react-router-dom"
-import { BtnBack } from "../components/button-back"
+import { BtnBack } from "../../components/button-back"
 
 export function FilmPage() {
     const { filmId } = useParams()
