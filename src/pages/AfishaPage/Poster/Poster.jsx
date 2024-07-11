@@ -1,7 +1,7 @@
 import styles from "./Poster.module.css"
 import { useNavigate } from "react-router-dom"
 import { Rating } from "../../../components/rating"
-import { Button } from "../../../components/button"
+import { Button } from "../../../components/Button/Button"
 import { BASE_URL } from "../../../api/api"
 
 export function Poster({ film }) {
@@ -30,7 +30,7 @@ export function Poster({ film }) {
             </div>
             <h2 className={styles.title}>{film.name}</h2>
             <Rating kin={film.userRatings.kinopoisk} imdb={film.userRatings.imdb} />
-            <Button>Подробнее</Button>
+            <Button type="primary" >Подробнее</Button>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Input } from "../../components/input"
-import { Button } from "../../components/button"
+import { Button } from "../../components/Button/Button"
 
 export const ProfilePage = () => {
     const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
@@ -79,7 +79,7 @@ export const ProfilePage = () => {
                         defaultValue={town}
                         onChange={(event) => setTown(event.target.value)}
                     />
-                    <Button onClick={btnClick}>Обновить данные</Button>
+                    <Button type="primary" onClick={btnClick}>Обновить данные</Button>
                 </form>
             </div>
         </div>

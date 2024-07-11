@@ -1,7 +1,7 @@
-import styles from "./styles.module.css"
+import styles from "./Hall.module.css"
 import { useEffect, useState } from "react"
-import { Place } from "../place/index"
-import { TicketInf } from "../ticket_inf"
+import { Place } from "../../../components/place/index"
+import { TicketInf } from "../../../components/ticket_inf"
 
 export const Hall = ({ hall, date_time }) => {
     const [isLoad, setIsLoad] = useState(false)

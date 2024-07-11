@@ -1,6 +1,5 @@
-import styles from "./styles.module.css"
+import styles from "./FilmInf.module.css"
 import { Rating } from "../../../components/rating"
-import { useState, useEffect } from "react"
 import { BASE_URL } from "../../../api/api"
 
 export function FilmInf({ film }) {

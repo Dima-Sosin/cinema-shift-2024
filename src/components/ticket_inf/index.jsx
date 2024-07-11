@@ -1,5 +1,5 @@
 import styles from "./styles.module.css"
-import { Button } from "../button"
+import { Button } from "../Button/Button"
 import { Translation } from "../../Translation"
 
 export const TicketInf = ({hall, date_time, places, sum }) => {
@@ -31,7 +31,7 @@ export const TicketInf = ({hall, date_time, places, sum }) => {
             <div className={styles.block}>
                 <div className={styles.price}>Сумма: {sum} ₽</div>
             </div>
-            <Button>Купить</Button>
+            <Button type="primary">Купить</Button>
         </div>
     )
 }

@@ -1,0 +1,53 @@
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+}
+.subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #344051;
+}
+.dates {
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: 2px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+.date {
+    display: flex;
+    align-items: center;
+}
+.date::after {
+    content: "";
+    height: 24px;
+    width: 1px;
+    background-color: #ced2da;
+}
+.date:last-child::after {
+    content: "";
+    width: 0;
+}
+.date > input,
+.time > input {
+    appearance: none;
+}
+.date label {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #637083;
+}
+.date > input:checked ~ label {
+    background-color: #9534d2;
+    color: #ffffff;
+}

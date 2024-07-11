@@ -1,6 +1,6 @@
-import styles from "./styles.module.css"
+import styles from "./Seances.module.css"
 import { useState } from "react"
-import { Hall } from "../hall/index"
+import { Hall } from "../Hall/Hall"
 
 export const Seances = ({ seances, date }) => {
     const [hall, setHall] = useState()
