@@ -20,7 +20,7 @@ export function Poster({ film }) {
     return (
         <div className={styles.poster} onClick={filmPage}>
             <div className={styles.img}>
-                <img src={BASE_URL + film.img} alt="poster" />
+                <img src={BASE_URL + film.img} alt={`Изображение постера к фильму "${film.name}"`} />
                 <div className={styles.block}>
                     <p className={styles.genre}>{film.genres[0]}</p>
                     <p className={styles.country}>
@@ -29,7 +29,6 @@ export function Poster({ film }) {
                 </div>
             </div>
             <h2 className={styles.title}>{film.name}</h2>
-            <p className={styles.subtitle}>{film.originalName}</p>
             <Rating kin={film.userRatings.kinopoisk} imdb={film.userRatings.imdb} />
             <Button>Подробнее</Button>
         </div>

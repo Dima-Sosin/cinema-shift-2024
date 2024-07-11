@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Input } from "../../components/input"
 import { Button } from "../../components/button"
 
-export function ProfilePage() {
+export const ProfilePage = () => {
     const [lastName, setLastName] = useState(localStorage.getItem("lastName"))
     const [firstName, setFirstName] = useState(localStorage.getItem("firstName"))
     const [patronymic, setPatronymic] = useState(localStorage.getItem("patronymic"))

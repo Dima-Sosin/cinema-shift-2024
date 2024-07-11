@@ -1,65 +1,33 @@
 import styles from "./styles.module.css"
-import { Rating } from "../rating"
+import { Rating } from "../../../components/rating"
 import { useState, useEffect } from "react"
-import { request } from "../../api/request"
-import { baseUrl } from "../../api/request"
+import { BASE_URL } from "../../../api/api"
 
-export function FilmInf({ filmId }) {
-    const [filmD, setFilmData] = useState({})
-
-    useEffect(() => {
-        request
-            .fetch("/cinema/film/" + filmId)
-            .then((response) => response.json())
-            .then((data) => setFilmData(data))
-    }, [])
-
-    const ratingAge = (age) => {
-        let rusAge = ""
-        switch (age) {
-            case "NC17":
-                rusAge = "18+"
-                break
-            case "R":
-                rusAge = "16+"
-                break
-            case "PG 13":
-                rusAge = "12+"
-                break
-            case "PG":
-                rusAge = "6+"
-                break
-            case "G":
-                rusAge = "0+"
-                break
-        }
-        return rusAge
-    }
+export function FilmInf({ film }) {
 
     const year = () => {
-        const len = filmD.film.releaseDate.length
-        const str = filmD.film.releaseDate.slice(len - 4)
+        const len = film.releaseDate.length
+        const str = film.releaseDate.slice(len - 4)
         return str
     }
 
     return (
-        filmD.success == true && (
+        film.success == true && (
             <div className={styles.container}>
                 <div className={styles.img}>
-                    <img src={baseUrl + filmD.film.img} alt="poster" />
+                    <img src={BASE_URL + filmD.film.img} alt={`Изображение постера к фильму "${film.name}"`} />
                     <div className={styles.block}>
                         <p className={styles.genre}>
-                            {filmD.film.genres[0]}
+                            {film.film.genres[0]}
                         </p>
                         <p className={styles.country}>
-                            {filmD.film.country.name}, {year()}
+                            {film.film.country.name}, {year()}
                         </p>
                     </div>
                 </div>
                 <div className={styles.inf}>
                     <h2 className={styles.title}>
-                        {filmD.film.name} ({ratingAge(filmD.film.ageRating)}
-                        )
+                        {filmD.film.name} {Translation[filmD.film.ageRating]}
                     </h2>
                     <p className={styles.subtitle}>
                         {filmD.film.originalName}

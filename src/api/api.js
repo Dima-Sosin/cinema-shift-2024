@@ -1,5 +1,26 @@
 export const BASE_URL = "https://shift-backend.onrender.com"
 
+export async function GET (path, params = {},  token = null) {
+    try{
+        const urlWithParams = new URL(BASE_URL + path);
+        Object.keys(params).forEach(key => urlWithParams.searchParams.append(key, params[key]));
+
+        const headers = {'Content-Type': 'application/json'};
+        if (token) {headers['Authorization'] = `Bearer ${token}`}
+
+        const response = await fetch(urlWithParams, {
+            method: 'GET',
+            headers: headers
+        })
+
+        return await response.json();
+    }
+    catch(error) {
+        console.error("Fetch error: ", error)
+        throw error;
+    }
+}
+
 export const api = {
     get: async function (path, params = {},  token = null) {
         try{
