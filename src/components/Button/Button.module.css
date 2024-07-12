@@ -10,8 +10,6 @@
     background: #7428a1;
 }
 
-
-
 .default {
     border: none;
     background: #ffffff;
@@ -25,20 +23,14 @@
     background: #edeef1;
 }
 
-
-
 .link {
-    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    padding: 24px 16px 24px 0;
+    border: none;
+    gap: 16px;
     background-color: transparent;
     color: #637083;
-}
-.link::before{
-    content: "";
-    position: absolute;
-    top:-10px;
-    left:-10px;
-    height: calc(100% + 20px);
-    width: calc(100% + 20px);
 }
 .link:hover {
     color: #556074;

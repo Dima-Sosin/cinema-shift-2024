@@ -24,7 +24,7 @@ export const ProfilePage = () => {
         <div className="page">
             <div className="container">
                 <form className="form">
-                    <h1>Профиль</h1>
+                    <h2>Профиль</h2>
                     <Input
                         text={"Фамилия"}
                         type={"text"}

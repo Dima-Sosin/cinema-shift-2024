@@ -28,7 +28,7 @@ export function Poster({ film }) {
                     </p>
                 </div>
             </div>
-            <h2 className={styles.title}>{film.name}</h2>
+            <h3 className={styles.title}>{film.name}</h3>
             <Rating kin={film.userRatings.kinopoisk} imdb={film.userRatings.imdb} />
             <Button type="primary" >Подробнее</Button>
         </div>

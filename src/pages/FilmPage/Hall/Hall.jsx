@@ -1,20 +1,11 @@
-import styles from "./Hall.module.css"
-import { useEffect, useState } from "react"
-import { Place } from "../../../components/place/index"
-import { TicketInf } from "../../../components/ticket_inf"
+import styles from "./Hall.module.css";
+import { useState } from "react";
+import { Place } from "../../../components/Place/Place";
+import { TicketInf } from "../../../components/TicketInf/TicketInf";
 
-export const Hall = ({ hall, date_time }) => {
-    const [isLoad, setIsLoad] = useState(false)
-    
-    useEffect(() =>{
-        if((hall != undefined) && (date_time.date != undefined) && (date_time.time != undefined))
-            setIsLoad(true)
-        setPlaces([])
-        setSum(0)
-    }, [hall, date_time])
-
-    const [places, setPlaces] = useState([])
-    const [sum, setSum] = useState(0)
+export const Hall = ({ date, seance }) => {
+    const [places, setPlaces] = useState([]);
+    const [sum, setSum] = useState(0);
 
     const addDeletePlaces = (isCheck, row, num, price) => {
         setPlaces((prevPlaces) => {
@@ -58,45 +49,44 @@ export const Hall = ({ hall, date_time }) => {
             updatedPlaces.sort((a, b) => a.row - b.row)
             return updatedPlaces
         })
-    }
+    };
 
-    return (<>
-        {isLoad && <>
+    return (
+        <>
             <h2 className={styles.title}>Выбор места</h2>
             <div className={styles.choice_place}>
                 <div className={styles.hall}>
                     <span className={styles.screen_title}>Экран</span>
                     <div className={styles.screen} />
                     <span className={styles.row_title}>Ряд</span>
-                    {hall.places.map((row, i) => (
-                        <div key={i} className={styles.row}>
-                            <span className={styles.row_name}>{i + 1}</span>
-                            {row.map((place, j) => {
-                                let dis = false
-                                if (place.type === "BLOCKED") {
-                                    dis = true
-                                }
-                                return (
-                                    <Place
-                                        key={j}
-                                        row={i + 1}
-                                        number={j + 1}
-                                        disabled={dis}
-                                        onClick={(e) => addDeletePlaces(e.target.checked, i + 1, j + 1, place.price)}
-                                    />
-                                )
-                            })}
-                        </div>
-                    ))}
+                    <ul>
+                        {seance.hall.places.map((row, i) => (
+                            <li className={styles.row} key={i}>
+                                <span className={styles.row_name}>{i + 1}</span>
+                                <ul>
+                                    {row.map((place, j) => (
+                                        <Place
+                                            code={j}
+                                            row={i + 1}
+                                            number={j + 1}
+                                            type={place.type}
+                                            onClick={(event) =>
+                                                addDeletePlaces(
+                                                    event.target.checked,
+                                                    i + 1,
+                                                    j + 1,
+                                                    place.price
+                                                )
+                                            }
+                                        />
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-                <TicketInf
-                    hall={hall.name}
-                    date_time={date_time}
-                    places={places}
-                    sum={sum}
-                />
+                <TicketInf date={date} seance={seance} places={places} sum={sum} />
             </div>
-        </>}
-    </>)
-    
-}
+        </>
+    );
+};

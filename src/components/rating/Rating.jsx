@@ -1,5 +1,5 @@
-import styles from "./styles.module.css"
-import { Star } from "./star.jsx"
+import styles from "./Rating.module.css"
+import { Star } from "./Star.jsx"
 
 export function Rating({ kin, imdb }) {
   const stars = () => {

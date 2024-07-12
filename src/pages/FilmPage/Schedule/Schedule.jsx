@@ -1,39 +1,77 @@
 import styles from "./Schedule.module.css";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { api } from "../../../api/api";
-import { Seances } from "../Seances/Seances";
+import { Times } from "../../../components/Times/Times";
+import { Hall } from "../Hall/Hall";
 
-export const Schedule = ({ film }) => {
-    const [filmS, setFilmSchedule] = useState([]);
-    const [seances, setSeances] = useState([]);
-    const [date, setDate] = useState();
+export const Schedule = () => {
+    const { filmId } = useParams();
+
+    const [scheduleResponse, setScheduleResponse] = useState({});
+    const [schedule, setSchedule] = useState({});
+    const [seance, setSeance] = useState({});
+
     useEffect(() => {
         api.get("/cinema/film/" + filmId + "/schedule").then((data) => {
-            setFilmSchedule(data);
-            setSeances(data.schedules[0].seances);
+            setScheduleResponse(data);
+            setSchedule(data.schedules[0]);
+            setSeance(data.schedules[0].seances[0]);
         });
     }, []);
 
     return (
-        filmS.success == true && (
+        scheduleResponse.success && (
             <>
                 <h2 className={styles.title}>Расписание</h2>
-                <div className={styles.dates}>
-                    {filmS.schedules.map((dat, i) => (
-                        <div key={i} className={styles.date}>
+                <ul className={styles.dates}>
+                    {scheduleResponse.schedules.map((schedule, i) => (
+                        <li className={styles.date} key={i}>
                             <input
                                 type="radio"
-                                id={dat.date}
+                                id={schedule.date}
                                 name="date"
                                 onClick={() => {
-                                    setSeances(dat.seances), setDate(dat.date);
+                                    setSchedule(schedule);
                                 }}
                             />
-                            <label htmlFor={dat.date}>{dat.date}</label>
-                        </div>
+                            <label htmlFor={schedule.date}>{schedule.date}</label>
+                        </li>
                     ))}
+                </ul>
+
+                <div className={styles.seances}>
+                    <span className={styles.subtitle}>Красный зал</span>
+                    <Times
+                        seances={schedule.seances}
+                        hall={"Red"}
+                        onClick={(seance) => {
+                            setSeance(seance);
+                        }}
+                    />
                 </div>
-                <Seances seances={seances} date={date} />
+                <div className={styles.seances}>
+                    <span className={styles.subtitle}>Зеленый зал</span>
+                    <Times
+                        seances={schedule.seances}
+                        hall={"Green"}
+                        onClick={(seance) => {
+                            setSeance(seance);
+                        }}
+                    />
+                </div>
+                <div className={styles.seances}>
+                    <span className={styles.subtitle}>Синий зал</span>
+                    <Times
+                        seances={schedule.seances}
+                        hall={"Blue"}
+                        onClick={(seance) => {
+                            setSeance(seance);
+                        }}
+                    />
+                </div>
+
+                <Hall date={schedule.date} seance={seance} />
             </>
         )
     );

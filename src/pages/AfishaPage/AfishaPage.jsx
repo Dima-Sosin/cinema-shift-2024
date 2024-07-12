@@ -6,7 +6,7 @@ export const AfishaPage = () => {
     return (
         <div className="page">
             <div className="container">
-                <h1>Афиша</h1>
+                <h2>Афиша</h2>
                 <ul className="cards">
                     {films.map((film) => (
                         <li key={film.id}>

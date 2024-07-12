@@ -13,6 +13,7 @@
 .dates {
     background-color: #f3f4f6;
     display: flex;
+    width: fit-content;
     align-items: center;
     border-radius: 16px;
     padding: 2px;
