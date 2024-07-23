@@ -1,16 +1,18 @@
 # Cinema ШИФТ
 Проект написан при помощи таких web-технологий, как **HTML**, **CSS**, **JavaScript**, в качестве фреймворка использована популярная библиотека [React](https://react.dev/).
-В качесте сборщика приложения используется [Vite](https://vitejs.dev/).
+
+Основной стек технологий:
+* Сборщик приложения - [Vite](https://vitejs.dev/)
+* Форматирование кода - [Prettier](https://prettier.io/)
+* Линтер - [ESLint](https://eslint.org/)
+* Стилизация - [Sass](https://sass-lang.com/)
+* Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
+* State-manager - [MobX](https://www.npmjs.com/package/mobx)
+* Обработка и валидация форм [Formik](https://formik.org/) + [Yup](https://www.npmjs.com/package/yup)
+* Создание масок ввода [React Input Mask](https://www.npmjs.com/package/react-input-mask)
 
 Этот проект реализует frontend часть web-приложения кинотетра, данные для вывода берутся из [backendа](https://shift-backend.onrender.com/api#/), написанного ШИФТ.
 
-Для написания стилей в данном проекте используется технология [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/), позволяющая не придерживаться БЭМ методологии.
-
-Навигации по сайту осуществляется благодаря библиотеке [react-router-dom](https://reactrouter.com/en/main), она позволяет легко реализовать навигацию на сайте. 
-
-Быстрый доступ к своей учетной записи реализуется благодаря сохранению данных в ***localStorage***.
-
-Также для удобства написания кода, в этом проекте активно используется библиотека для форматирования кода [Prettier](https://prettier.io/).
 ___
 На данный момент реализованы несколько страниц:
 * **Афиша** - на этой странице представлены фильмы, которые находятся в данных момент в прокате;
