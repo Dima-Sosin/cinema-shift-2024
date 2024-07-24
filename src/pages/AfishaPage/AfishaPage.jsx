@@ -7,9 +7,7 @@ export const AfishaPage = () => {
     const films = useLoaderData().films;
     return (
         <PageLayout>
-            <h2>
-                Афиша
-            </h2>
+            <h2>Афиша</h2>
             <ul className={styles.cards}>
                 {films.map((film) => (
                     <li key={film.id}>
