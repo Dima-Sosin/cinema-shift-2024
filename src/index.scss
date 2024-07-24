@@ -45,25 +45,6 @@ h3 {
     line-height: 24px;
     color: $font-color;
 }
-
-.header_line {
-    border-bottom: 1px solid #ced2da;
-}
-
-.cards {
-    justify-content: center;
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
-    gap: 50px 30px;
-    @media (max-width: 1019px) {
-        grid-template-columns: 300px 300px;
-        gap: 40px 20px;
-    }
-    @media (max-width: 767px) {
-        grid-template-columns: 300px;
-        gap: 20px;
-    }
-}
 form {
     display: flex;
     flex-direction: column;
@@ -79,4 +60,8 @@ form {
     .container {
         padding: 0 10px;
     }
+}
+
+.header_line {
+    border-bottom: 1px solid #ced2da;
 }
