@@ -1,0 +1,40 @@
+.seances {
+    display: flex;
+    flex-direction: column;
+}
+.times {
+    display: flex;
+    flex-direction: row;
+    margin: 16px 0 24px;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+.time {
+    margin: 2px;
+    list-style-type: none;
+}
+.time label {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 1px solid #ced2da;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #637083;
+}
+
+.time > input{
+    appearance: none;
+}
+.time > input:checked ~ label {
+    background-color: $primary;
+    color: #ffffff;
+}
+@media (max-width: 768px) {
+    .title {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+}
