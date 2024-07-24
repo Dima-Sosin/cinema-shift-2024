@@ -28,7 +28,7 @@
     appearance: none;
 }
 .time > input:checked ~ label {
-    background-color: #9534d2;
+    background-color: $primary;
     color: #ffffff;
 }
 @media (max-width: 768px) {

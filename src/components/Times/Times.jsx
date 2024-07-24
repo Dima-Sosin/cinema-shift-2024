@@ -1,4 +1,4 @@
-import styles from "./Times.module.css";
+import styles from "./Times.module.scss";
 
 export const Times = ({ seances, hall, onClick }) => (
     <div className={styles.times}>
@@ -20,4 +20,4 @@ export const Times = ({ seances, hall, onClick }) => (
             }
         })}
     </div>
-)
+);

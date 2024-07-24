@@ -1,7 +1,7 @@
-import styles from "./Hall.module.css";
+import styles from "./Hall.module.scss";
 import { useState } from "react";
-import { Place } from "../../../components/Place/Place";
-import { TicketInf } from "../../../components/TicketInf/TicketInf";
+import { Place } from "@components/Place/Place";
+import { TicketInf } from "@components/TicketInf/TicketInf";
 
 export const Hall = ({ date, seance }) => {
     const [places, setPlaces] = useState([]);
@@ -52,10 +52,10 @@ export const Hall = ({ date, seance }) => {
     };
 
     return (
-        <>
-            <h2 className={styles.title}>Выбор места</h2>
+        <section className={styles.hall}>
+            <h2>Выбор места</h2>
             <div className={styles.choice_place}>
-                <div className={styles.hall}>
+                <div className={styles.room}>
                     <span className={styles.screen_title}>Экран</span>
                     <div className={styles.screen} />
                     <span className={styles.row_title}>Ряд</span>
@@ -87,6 +87,6 @@ export const Hall = ({ date, seance }) => {
                 </div>
                 <TicketInf date={date} seance={seance} places={places} sum={sum} />
             </div>
-        </>
+        </section>
     );
 };

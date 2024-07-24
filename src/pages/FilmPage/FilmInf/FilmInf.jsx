@@ -1,7 +1,7 @@
-import styles from "./FilmInf.module.css";
-import { Rating } from "../../../components/Rating/Rating";
-import { BASE_URL } from "../../../api/api";
-import { Translation } from "../../../Translation";
+import styles from "./FilmInf.module.scss";
+import { Rating } from "@components/Rating/Rating";
+import { BASE_URL } from "@api";
+import { Translation } from "@translation";
 
 export function FilmInf({ film }) {
     const year = () => {
@@ -11,7 +11,7 @@ export function FilmInf({ film }) {
     };
 
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <div className={styles.img}>
                 <img
                     src={BASE_URL + film.img}
@@ -29,7 +29,10 @@ export function FilmInf({ film }) {
                     {film.name} {Translation[film.ageRating]}
                 </h1>
                 <p className={styles.subtitle}>{film.originalName}</p>
-                <Rating kin={film.userRatings.kinopoisk} imdb={film.userRatings.imdb} />
+                <Rating
+                    kin={film.userRatings.kinopoisk}
+                    imdb={film.userRatings.imdb}
+                />
                 <p className={styles.text}>
                     <span className={styles.span}>Дата выхода: </span>
                     {film.releaseDate}
@@ -59,6 +62,6 @@ export function FilmInf({ film }) {
                     {film.description}
                 </p>
             </div>
-        </div>
+        </section>
     );
 }

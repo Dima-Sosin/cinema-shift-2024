@@ -1,0 +1,58 @@
+.place {
+    display: inline-block;
+}
+.place > input {
+    display: none;
+}
+.place > label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: $primary;
+    margin: 12px;
+    color: $primary;
+    position: relative;
+}
+.place > label:hover {
+    cursor: pointer;
+}
+.place > label:before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 40px;
+    height: 40px;
+}
+.place > input:checked ~ label {
+    color: #ffffff;
+    box-shadow: 0 0 0 12px $primary;
+}
+.place > input:disabled ~ label {
+    color: lightgray;
+    background: lightgray;
+}
+@media (max-width: 767px) {
+    .place > label {
+        width: 10px;
+        height: 10px;
+        margin: 6px;
+        font-size: 8px;
+    }
+    .place > label:before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        width: 22px;
+        height: 22px;
+    }
+    .place > input:checked ~ label {
+        color: #ffffff;
+        box-shadow: 0 0 0 6px $primary;
+    }
+}

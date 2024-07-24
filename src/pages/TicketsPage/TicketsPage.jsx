@@ -1,9 +1,9 @@
+import { PageLayout } from "@components/PageLayout/PageLayout"
+
 export const TicketsPage = () => {
     return (
-        <div className="page">
-            <div className="container">
-                
-            </div>
-        </div>
+        <PageLayout>
+
+        </PageLayout>
     )
 }

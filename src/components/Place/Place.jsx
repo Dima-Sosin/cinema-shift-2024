@@ -1,4 +1,4 @@
-import styles from "./Place.module.css"
+import styles from "./Place.module.scss";
 
 export const Place = ({ code, row, number, type, onClick }) => (
     <li className={styles.place} key={code}>
@@ -10,4 +10,4 @@ export const Place = ({ code, row, number, type, onClick }) => (
         />
         <label htmlFor={String(row) + String(number)}>{number}</label>
     </li>
-)
+);

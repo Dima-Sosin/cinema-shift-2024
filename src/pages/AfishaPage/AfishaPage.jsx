@@ -1,20 +1,19 @@
-import { useLoaderData } from "react-router-dom"
-import { Poster } from "./Poster/Poster"
+import { useLoaderData } from "react-router-dom";
+import { Poster } from "./Poster/Poster";
+import { PageLayout } from "../../components/PageLayout/PageLayout"
 
 export const AfishaPage = () => {
-    const films = useLoaderData().films
+    const films = useLoaderData().films;
     return (
-        <div className="page">
-            <div className="container">
-                <h2>Афиша</h2>
-                <ul className="cards">
-                    {films.map((film) => (
-                        <li key={film.id}>
-                            <Poster film={film} />
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
-    )
-}
+        <PageLayout>
+            <h2>Афиша</h2>
+            <ul className="cards">
+                {films.map((film) => (
+                    <li key={film.id}>
+                        <Poster film={film} />
+                    </li>
+                ))}
+            </ul>
+        </PageLayout>
+    );
+};

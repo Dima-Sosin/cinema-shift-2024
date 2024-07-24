@@ -1,8 +1,5 @@
-.title {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-    margin-bottom: 24px;
+.schedule{
+    margin-top: 24px;
 }
 .subtitle {
     font-size: 12px;
@@ -49,6 +46,6 @@
     color: #637083;
 }
 .date > input:checked ~ label {
-    background-color: #9534d2;
+    background-color: $primary;
     color: #ffffff;
 }

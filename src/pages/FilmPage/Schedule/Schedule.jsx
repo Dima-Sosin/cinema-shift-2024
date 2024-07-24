@@ -1,31 +1,18 @@
-import styles from "./Schedule.module.css";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { api } from "../../../api/api";
-import { Times } from "../../../components/Times/Times";
+import styles from "./Schedule.module.scss";
+import { useState } from "react";
+import { Times } from "@components/Times/Times";
 import { Hall } from "../Hall/Hall";
 
-export const Schedule = () => {
-    const { filmId } = useParams();
-
-    const [scheduleResponse, setScheduleResponse] = useState({});
-    const [schedule, setSchedule] = useState({});
-    const [seance, setSeance] = useState({});
-
-    useEffect(() => {
-        api.get("/cinema/film/" + filmId + "/schedule").then((data) => {
-            setScheduleResponse(data);
-            setSchedule(data.schedules[0]);
-            setSeance(data.schedules[0].seances[0]);
-        });
-    }, []);
+export const Schedule = ({ schedules }) => {
+    const [schedule, setSchedule] = useState(schedules[0]);
+    const [seance, setSeance] = useState(schedules[0].seances[0]);
 
     return (
-        scheduleResponse.success && (
-            <>
-                <h2 className={styles.title}>Расписание</h2>
+        <>
+            <section className={styles.schedule}>
+                <h2>Расписание</h2>
                 <ul className={styles.dates}>
-                    {scheduleResponse.schedules.map((schedule, i) => (
+                    {schedules.map((schedule, i) => (
                         <li className={styles.date} key={i}>
                             <input
                                 type="radio"
@@ -70,9 +57,8 @@ export const Schedule = () => {
                         }}
                     />
                 </div>
-
-                <Hall date={schedule.date} seance={seance} />
-            </>
-        )
+            </section>
+            <Hall date={schedule.date} seance={seance} />
+        </>
     );
 };
