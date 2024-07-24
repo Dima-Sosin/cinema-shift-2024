@@ -7,6 +7,7 @@
 * Линтер - [ESLint](https://eslint.org/)
 * Стилизация - [Sass](https://sass-lang.com/)
 * Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
+* Получение данных с сервера - [Axios](https://www.npmjs.com/package/axios)
 * State-manager - [MobX](https://www.npmjs.com/package/mobx)
 * Обработка и валидация форм [Formik](https://formik.org/) + [Yup](https://www.npmjs.com/package/yup)
 * Создание масок ввода [React Input Mask](https://www.npmjs.com/package/react-input-mask)
