@@ -8,7 +8,7 @@ export const AfishaPage = () => {
     const data = useLoaderData();
     return (
         <PageLayout>
-            <h2>Афиша</h2>
+            <h1>Афиша</h1>
             {data.success && (
                 <ul className={styles.cards}>
                     {data.films.map((film) => (

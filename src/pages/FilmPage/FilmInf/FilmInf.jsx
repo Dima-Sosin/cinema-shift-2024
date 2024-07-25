@@ -25,7 +25,7 @@ export function FilmInf({ film }) {
                 </div>
             </div>
             <div className={styles.inf}>
-                <h1 className={styles.title}>
+                <h1>
                     {film.name} {Translation[film.ageRating]}
                 </h1>
                 <p className={styles.subtitle}>{film.originalName}</p>

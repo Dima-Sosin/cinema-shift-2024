@@ -1,7 +1,8 @@
 import styles from "./Hall.module.scss";
 import { useState } from "react";
 import { Place } from "@components/Place/Place";
-import { TicketInf } from "@components/TicketInf/TicketInf";
+import { TicketInf } from "../TicketInf/TicketInf";
+import { observer } from "mobx-react-lite"
 
 export const Hall = ({ date, seance }) => {
     const [places, setPlaces] = useState([]);

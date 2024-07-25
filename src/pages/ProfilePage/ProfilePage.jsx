@@ -8,9 +8,9 @@ export const ProfilePage = () => {
     const user = data.user
     return (
         <PageLayout>
+            <h1>Профиль</h1>
             {data.succes && (
                 <form>
-                    <h2>Профиль</h2>
                     <Input
                         text="Фамилия"
                         type="text"

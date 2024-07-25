@@ -9,6 +9,7 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AfishaPage } from "./pages/AfishaPage/AfishaPage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { TicketsPage } from "./pages/TicketsPage/TicketsPage";
+import { OrderPage } from "./pages/OrderPage/OrderPage";
 import { FilmPage } from "./pages/FilmPage/FilmPage";
 
 const router = createBrowserRouter([
@@ -42,6 +43,15 @@ const router = createBrowserRouter([
                     return await api
                         .get("/cinema/orders")
                         .then(response => response.data);
+                }
+            },
+            {
+                path: "order",
+                element: <OrderPage />,
+                loader: async () => {
+                    return await api
+                        .get("/users/session")
+                        .then((response) => response.data);
                 }
             },
             {
