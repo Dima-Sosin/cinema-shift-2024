@@ -15,17 +15,25 @@
     border: 1px solid lightgray;
     border-radius: 7px;
     color: $font-color;
-}
-.input:hover {
-    border-color: black;
-}
-.input:focus {
-    outline: none;
-    border-color: $primary;
-    box-shadow: 0 0 0 1px $primary;
+    &:hover {
+        border-color: black;
+    }
+    &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 1px $primary;
+    }
 }
 input[readonly] {
     background-color: #F3F4F6;
+    &:hover {
+        border-color: #CED2DA;
+    }
+    &:focus {
+        outline: none;
+        border-color: #CED2DA;
+        box-shadow: none;
+    }
 }
 .error {
     position: absolute;

@@ -1,73 +1,102 @@
-import { PageLayout } from "@components/PageLayout/PageLayout"
-import { useLoaderData } from "react-router-dom"
-import { FormikField } from "@components/FormikField/FormikField"
-import { Button } from "@components/Button/Button"
+import { PageLayout } from "@components/PageLayout/PageLayout";
+import { useLoaderData } from "react-router-dom";
+import { FormikField } from "@components/FormikField/FormikField";
+import { Button } from "@components/Button/Button";
+import { Form, Formik } from "formik";
+import * as yup from "yup";
 
 export const ProfilePage = () => {
-    const data = useLoaderData()
-    const user = data.user
+    const data = useLoaderData();
+    const initialValues = {
+        lastname: data.user?.lastname,
+        firstname: data.user?.firstname,
+        middlename: data.user?.middlename,
+        phone: data.user?.phone,
+        email: data.user?.email,
+        city: data.user?.city
+    };
+
+    const onSubmit = values => {
+        console.log(JSON.stringify(values, null, 4));
+        setPage("debitCard");
+    };
+
+    const validationSchema = yup.object({
+        lastname: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Фамилия должна содержать только буквы!"),
+        firstname: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Имя должно содержать только буквы!"),
+        middlename: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i,"Отчество должно содержать только буквы!"),
+        email: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,"Неправильный email!"),
+        city: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Неправильный город!")
+    });
+
     return (
         <PageLayout>
             <h1>Профиль</h1>
-            {/* {data.succes && (
-                <form>
-                    <Input
-                        text="Фамилия"
-                        type="text"
-                        id="lastname"
-                        name="lastname"
-                        placeholder="Фамилия"
-                        defaultValue={user?.lastName}
-                        onChange={(event) => setLastName(event.target.value)}
-                    />
-                    <Input
-                        text="Имя"
-                        type="text"
-                        id="firstname"
-                        name="firstname"
-                        placeholder="Имя"
-                        defaultValue={user?.firstName}
-                        onChange={(event) => setFirstName(event.target.value)}
-                    />
-                    <Input
-                        text="Отчество"
-                        type="text"
-                        id="middlename"
-                        name="middlename"
-                        placeholder="Отчество"
-                        defaultValue={user?.middlename}
-                        onChange={(event) => setPatronymic(event.target.value)}
-                    />
-                    <Input
-                        text="Номер телефона"
-                        type="text"
-                        id="phone"
-                        name="phone"
-                        placeholder="Номер телефона"
-                        defaultValue={user?.phone}
-                        onChange={(event) => setTelephone(event.target.value)}
-                    />
-                    <Input
-                        text="Email"
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        defaultValue={user?.email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
-                    <Input
-                        text="Город"
-                        type="text"
-                        id="city"
-                        name="city"
-                        placeholder="Город"
-                        defaultValue={user?.city}
-                        onChange={(event) => setTown(event.target.value)}
-                    />
-                    <Button type="primary" onClick={() => {}}>Обновить данные</Button>
-                </form>
-            )} */}
+            {data.success && (
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={onSubmit}
+                    validationSchema={validationSchema}
+                >
+                    {formik => (
+                        <Form className="form">
+                            <FormikField
+                                label="Фамилия*"
+                                type="text"
+                                name="lastname"
+                                placeholder="Фамилия"
+                            />
+                            <FormikField
+                                label="Имя*"
+                                type="text"
+                                name="firstname"
+                                placeholder="Имя"
+                            />
+                            <FormikField
+                                label="Отчество"
+                                type="text"
+                                name="middlename"
+                                placeholder="Отчество"
+                            />
+                            <FormikField
+                                label="Телефон*"
+                                type="text"
+                                name="phone"
+                                placeholder="Телефон"
+                                readOnly={true}
+                            />
+                            <FormikField
+                                label="Email"
+                                type="text"
+                                name="email"
+                                placeholder="Email"
+                            />
+                            <FormikField
+                                label="Город"
+                                type="text"
+                                name="city"
+                                placeholder="Город"
+                            />
+                            <Button type="primary">Продолжить</Button>
+                        </Form>
+                    )}
+                </Formik>
+            )}
         </PageLayout>
-    )
-}
+    );
+};

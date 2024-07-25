@@ -21,7 +21,7 @@ export const PersonalData = () => {
 
     const onSubmit = values => {
         console.log(JSON.stringify(values, null, 4));
-        setPage("debitCard")
+        setPage("debitCard");
     };
 
     const validationSchema = yup.object({
@@ -81,6 +81,7 @@ export const PersonalData = () => {
                                 type="text"
                                 name="phone"
                                 placeholder="Телефон"
+                                mask="+7 999 999 99 99"
                             />
                             <FormikField
                                 label="Email"
@@ -94,12 +95,7 @@ export const PersonalData = () => {
                                 name="city"
                                 placeholder="Город"
                             />
-                            <Button
-                                type="primary"
-                                onClick={event => onSubmit(event)}
-                            >
-                                Продолжить
-                            </Button>
+                            <Button type="primary">Продолжить</Button>
                         </Form>
                     )}
                 </Formik>
