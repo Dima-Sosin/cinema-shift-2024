@@ -22,7 +22,9 @@ export const Schedule = ({ schedules }) => {
                                     setSchedule(schedule);
                                 }}
                             />
-                            <label htmlFor={schedule.date}>{schedule.date}</label>
+                            <label htmlFor={schedule.date}>
+                                {schedule.date}
+                            </label>
                         </li>
                     ))}
                 </ul>
@@ -32,7 +34,7 @@ export const Schedule = ({ schedules }) => {
                     <Times
                         seances={schedule.seances}
                         hall={"Red"}
-                        onClick={(seance) => {
+                        onClick={seance => {
                             setSeance(seance);
                         }}
                     />
@@ -42,7 +44,7 @@ export const Schedule = ({ schedules }) => {
                     <Times
                         seances={schedule.seances}
                         hall={"Green"}
-                        onClick={(seance) => {
+                        onClick={seance => {
                             setSeance(seance);
                         }}
                     />
@@ -52,7 +54,7 @@ export const Schedule = ({ schedules }) => {
                     <Times
                         seances={schedule.seances}
                         hall={"Blue"}
-                        onClick={(seance) => {
+                        onClick={seance => {
                             setSeance(seance);
                         }}
                     />

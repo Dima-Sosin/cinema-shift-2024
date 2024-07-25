@@ -18,10 +18,12 @@ export const createData = () => {
             this.debitCard = card;
         },
         addSeance(date, time) {
-            this.seance = {date:date, time:time};
+            this.seance = { date: date, time: time };
         },
         addTicket(row, column) {
-            this.tickets = [...this.tickets, {row:row, column:column}]
+            this.tickets = [...this.tickets, { row: row, column: column }];
         }
     });
 };
+
+export const userData = createData();

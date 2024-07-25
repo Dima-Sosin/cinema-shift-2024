@@ -40,7 +40,7 @@ export function FilmInf({ film }) {
                 <div className={styles.text}>
                     <span className={styles.span}>Актеры: </span>
                     <ul>
-                        {film.actors.map((actor) => (
+                        {film.actors.map(actor => (
                             <li className={styles.elem} key={actor.id}>
                                 {actor.fullName}
                             </li>
@@ -50,7 +50,7 @@ export function FilmInf({ film }) {
                 <div className={styles.text}>
                     <span className={styles.span}>Продюссеры: </span>
                     <ul>
-                        {film.directors.map((director) => (
+                        {film.directors.map(director => (
                             <li className={styles.elem} key={director.id}>
                                 {director.fullName}
                             </li>

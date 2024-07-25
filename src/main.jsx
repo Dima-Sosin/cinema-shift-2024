@@ -24,7 +24,7 @@ const router = createBrowserRouter([
                 loader: async () => {
                     return await api
                         .get("/cinema/today")
-                        .then((response) => response.data);
+                        .then(response => response.data);
                 }
             },
             {
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
                 loader: async () => {
                     return await api
                         .get("/users/session")
-                        .then((response) => response.data);
+                        .then(response => response.data);
                 }
             },
             {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
                 loader: async () => {
                     return await api
                         .get("/users/session")
-                        .then((response) => response.data);
+                        .then(response => response.data);
                 }
             },
             {

@@ -3,12 +3,17 @@ import { useState, useContext } from "react";
 import { PageContext } from "../OrderPage";
 import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
+import { ModalSuccess } from "../ModalSuccess/ModalSuccess";
+import { userData } from "../../../store/createData";
+import { api } from "@api";
+import { toJS } from "mobx";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
 export const DebitCard = () => {
     const { setPage } = useContext(PageContext);
     const [isModal, setIsModal] = useState(false);
+    const [response, setResponse] = useState({});
 
     const initialValues = {
         pan: "",
@@ -17,14 +22,27 @@ export const DebitCard = () => {
     };
 
     const onSubmit = values => {
-        console.log(JSON.stringify(values, null, 4));
-        setIsModal(true);
+        userData.addDebitCard(values);
+        const body = {
+            filmId: toJS(userData.filmId),
+            person: toJS(userData.person),
+            debitCard: toJS(userData.debitCard),
+            seance: toJS(userData.seance),
+            tickets: toJS(userData.tickets)
+        };
+        api.post("/cinema/payment", body).then(response => {
+            setResponse(response.data);
+            setIsModal(true);
+        });
     };
 
     const validationSchema = yup.object({
         expireDate: yup
             .string()
-            .matches(/^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i, "Неправильная дата!")
+            .matches(
+                /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
+                "Неправильная дата!"
+            )
     });
 
     return (
@@ -74,7 +92,12 @@ export const DebitCard = () => {
                     </Form>
                 )}
             </Formik>
-            {isModal && <ModalSuccess onClose={() => setIsModal(false)} />}
+            {isModal && (
+                <ModalSuccess
+                    response={response}
+                    onClose={() => setIsModal(false)}
+                />
+            )}
         </>
     );
 };

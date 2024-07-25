@@ -3,6 +3,8 @@ import { useLoaderData } from "react-router-dom";
 import { PageContext } from "../OrderPage";
 import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
+import { userData } from "../../../store/createData";
+import { toJS } from "mobx";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
@@ -20,7 +22,7 @@ export const PersonalData = () => {
     };
 
     const onSubmit = values => {
-        console.log(JSON.stringify(values, null, 4));
+        userData.addPerson(values);
         setPage("debitCard");
     };
 
@@ -36,11 +38,17 @@ export const PersonalData = () => {
         middlename: yup
             .string()
             .max(100, "Слишком много символов!")
-            .matches(/^[A-ZА-Я-]+$/i, "Отчество должно содержать только буквы!"),
+            .matches(
+                /^[A-ZА-Я-]+$/i,
+                "Отчество должно содержать только буквы!"
+            ),
         email: yup
             .string()
             .max(100, "Слишком много символов!")
-            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, "Неправильный email!"),
+            .matches(
+                /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
+                "Неправильный email!"
+            ),
         city: yup
             .string()
             .max(100, "Слишком много символов!")

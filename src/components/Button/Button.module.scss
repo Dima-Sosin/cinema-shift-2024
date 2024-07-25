@@ -41,7 +41,7 @@ button {
     height: fit-content;
     padding: 0;
     line-height: 24px;
-    margin-bottom:24px;
+    margin-bottom: 24px;
     border: none;
     gap: 16px;
     background-color: transparent;
@@ -54,11 +54,11 @@ button {
 .link:active {
     color: $primary-active;
 }
-.link::before{
+.link::before {
     content: "";
     position: absolute;
-    top:-20px;
-    left:-20px;
+    top: -20px;
+    left: -20px;
     width: calc(100% + 40px);
     height: calc(100% + 40px);
 }

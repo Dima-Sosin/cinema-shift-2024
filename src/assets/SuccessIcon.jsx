@@ -28,4 +28,4 @@ export const SuccessIcon = () => (
             </linearGradient>
         </defs>
     </svg>
-)
+);

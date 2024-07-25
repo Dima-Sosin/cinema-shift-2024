@@ -13,4 +13,4 @@ export const UserIcon = () => (
             fill="currentColor"
         />
     </svg>
-)
+);

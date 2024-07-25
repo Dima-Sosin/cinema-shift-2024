@@ -25,13 +25,13 @@
     }
 }
 input[readonly] {
-    background-color: #F3F4F6;
+    background-color: #f3f4f6;
     &:hover {
-        border-color: #CED2DA;
+        border-color: #ced2da;
     }
     &:focus {
         outline: none;
-        border-color: #CED2DA;
+        border-color: #ced2da;
         box-shadow: none;
     }
 }

@@ -17,7 +17,7 @@ export const ProfilePage = () => {
     };
 
     const onSubmit = values => {
-        console.log(JSON.stringify(values, null, 4));
+        console.log(values);
         setPage("debitCard");
     };
 
@@ -33,11 +33,17 @@ export const ProfilePage = () => {
         middlename: yup
             .string()
             .max(100, "Слишком много символов!")
-            .matches(/^[A-ZА-Я-]+$/i,"Отчество должно содержать только буквы!"),
+            .matches(
+                /^[A-ZА-Я-]+$/i,
+                "Отчество должно содержать только буквы!"
+            ),
         email: yup
             .string()
             .max(100, "Слишком много символов!")
-            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,"Неправильный email!"),
+            .matches(
+                /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i,
+                "Неправильный email!"
+            ),
         city: yup
             .string()
             .max(100, "Слишком много символов!")

@@ -1,13 +1,12 @@
 import styles from "./TicketInf.module.scss";
-import { Link, useParams,  } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Translation } from "@translation";
 import { Button } from "@components/Button/Button";
-import { createData } from "../../../store/createData";
-import { toJS } from 'mobx';
+import { userData } from "../../../store/createData";
+import { toJS } from "mobx";
 
 export const TicketInf = ({ date, seance, places, sum }) => {
     const { filmId } = useParams();
-    const userData = createData();
 
     const addFilm = () => {
         userData.addFilmId(filmId);
@@ -17,8 +16,6 @@ export const TicketInf = ({ date, seance, places, sum }) => {
                 userData.addTicket(row.row, place);
             });
         });
-        console.log(toJS(userData));
-        setIsModal(true)
     };
 
     return (

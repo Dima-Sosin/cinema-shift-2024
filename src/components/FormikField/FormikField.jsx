@@ -1,6 +1,6 @@
 import styles from "./FormikField.module.scss";
 import { ErrorMessage, Field } from "formik";
-import InputMask from "react-input-mask"
+import InputMask from "react-input-mask";
 
 export const FormikField = ({
     name,
