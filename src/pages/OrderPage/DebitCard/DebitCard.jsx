@@ -1,7 +1,7 @@
 import styles from "./DebitCard.module.scss"
 import { useState, useContext } from "react"
 import { PageContext } from "../OrderPage"
-import { Input } from "@components/Input/Input"
+import { FormikField } from "@components/FormikField/FormikField"
 import { Button } from "@components/Button/Button"
 
 export const DebitCard = () => {
@@ -15,7 +15,7 @@ export const DebitCard = () => {
     return (
         <>
             <h1>Введите данные карты для оплаты</h1>
-            <form>
+            {/* <form>
                 <div className={styles.block}>
                     <Input
                         text="Номер*"
@@ -56,7 +56,7 @@ export const DebitCard = () => {
                         setIsModal(false)
                     }}
                 />
-            )}
+            )} */}
         </>
     )
 }

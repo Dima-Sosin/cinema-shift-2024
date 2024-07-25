@@ -1,79 +1,108 @@
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { PageContext } from "../OrderPage";
-import { Input } from "@components/Input/Input";
+import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
+import { Form, Formik } from "formik";
+import * as yup from "yup";
 
 export const PersonalData = () => {
     const { setPage } = useContext(PageContext);
     const data = useLoaderData();
 
-    const onSubmit = (event) => {
-        event.stopPropagation();
-        setPage("debitCard");
+    const initialValues = {
+        lastname: data.user?.lastname,
+        firstname: data.user?.firstname,
+        middlename: data.user?.middlename,
+        phone: data.user?.phone,
+        email: data.user?.email,
+        city: data.user?.city
     };
+
+    const onSubmit = values => {
+        console.log(JSON.stringify(values, null, 4));
+        setPage("debitCard")
+    };
+
+    const validationSchema = yup.object({
+        lastname: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Фамилия должна содержать только буквы!"),
+        firstname: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Имя должно содержать только буквы!"),
+        middlename: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Отчество должно содержать только буквы!"),
+        email: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{1,64}$/i, "Неправильный email!"),
+        city: yup
+            .string()
+            .max(100, "Слишком много символов!")
+            .matches(/^[A-ZА-Я-]+$/i, "Неправильный город!")
+    });
 
     return (
         <>
             <h1>Введите ваши данные</h1>
             {data.success && (
-                <form>
-                    <Input
-                        text="Фамилия*"
-                        type="text"
-                        id="profile-lastname"
-                        name="lastname"
-                        placeholder="Фамилия"
-                        defaultValue={data.user?.lastname}
-                    />
-                    <Input
-                        text="Имя*"
-                        type="text"
-                        id="profile-firstname"
-                        name="firstname"
-                        placeholder="Имя"
-                        defaultValue={data.user?.firstname}
-                    />
-                    <Input
-                        text="Отчество"
-                        type="text"
-                        id="profile-middlename"
-                        name="middlename"
-                        placeholder="Отчество"
-                        defaultValue={data.user?.middlename}
-                    />
-                    <Input
-                        text="Телефон*"
-                        type="text"
-                        id="profile-phone"
-                        name="phone"
-                        placeholder="Телефон"
-                        defaultValue={data.user?.phone}
-                    />
-                    <Input
-                        text="Email"
-                        type="text"
-                        id="profile-email"
-                        name="email"
-                        placeholder="Email"
-                        defaultValue={data.user?.email}
-                    />
-                    <Input
-                        text="Город"
-                        type="text"
-                        id="city"
-                        name="city"
-                        placeholder="Город"
-                        defaultValue={data.user?.city}
-                        onChange={event => setTown(event.target.value)}
-                    />
-                    <Button 
-                        type="primary" 
-                        onClick={(event) => onSubmit(event) }
-                    >
-                        Продолжить
-                    </Button>
-                </form>
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={onSubmit}
+                    validationSchema={validationSchema}
+                >
+                    {formik => (
+                        <Form className="form">
+                            <FormikField
+                                label="Фамилия*"
+                                type="text"
+                                name="lastname"
+                                placeholder="Фамилия"
+                            />
+                            <FormikField
+                                label="Имя*"
+                                type="text"
+                                name="firstname"
+                                placeholder="Имя"
+                            />
+                            <FormikField
+                                label="Отчество"
+                                type="text"
+                                name="middlename"
+                                placeholder="Отчество"
+                            />
+                            <FormikField
+                                label="Телефон*"
+                                type="text"
+                                name="phone"
+                                placeholder="Телефон"
+                            />
+                            <FormikField
+                                label="Email"
+                                type="text"
+                                name="email"
+                                placeholder="Email"
+                            />
+                            <FormikField
+                                label="Город"
+                                type="text"
+                                name="city"
+                                placeholder="Город"
+                            />
+                            <Button
+                                type="primary"
+                                onClick={event => onSubmit(event)}
+                            >
+                                Продолжить
+                            </Button>
+                        </Form>
+                    )}
+                </Formik>
             )}
         </>
     );

@@ -1,6 +1,6 @@
 import { PageLayout } from "@components/PageLayout/PageLayout"
 import { useLoaderData } from "react-router-dom"
-import { Input } from "@components/Input/Input"
+import { FormikField } from "@components/FormikField/FormikField"
 import { Button } from "@components/Button/Button"
 
 export const ProfilePage = () => {
@@ -9,7 +9,7 @@ export const ProfilePage = () => {
     return (
         <PageLayout>
             <h1>Профиль</h1>
-            {data.succes && (
+            {/* {data.succes && (
                 <form>
                     <Input
                         text="Фамилия"
@@ -67,7 +67,7 @@ export const ProfilePage = () => {
                     />
                     <Button type="primary" onClick={() => {}}>Обновить данные</Button>
                 </form>
-            )}
+            )} */}
         </PageLayout>
     )
 }
