@@ -33,8 +33,9 @@
     box-shadow: 0 0 0 12px $primary;
 }
 .place > input:disabled ~ label {
-    color: lightgray;
-    background: lightgray;
+    color: transparent;
+    background: transparent;
+    cursor: auto;
 }
 @media (max-width: 767px) {
     .place > label {

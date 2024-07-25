@@ -1,6 +1,6 @@
 import styles from "./FilmInf.module.scss";
 import { Rating } from "@components/Rating/Rating";
-import { BASE_URL } from "@api";
+import { api } from "@api";
 import { Translation } from "@translation";
 
 export function FilmInf({ film }) {
@@ -14,7 +14,7 @@ export function FilmInf({ film }) {
         <section className={styles.container}>
             <div className={styles.img}>
                 <img
-                    src={BASE_URL + film.img}
+                    src={api.defaults.baseURL + film.img}
                     alt={`Изображение постера к фильму "${film.name}"`}
                 />
                 <div className={styles.block}>

@@ -14,10 +14,12 @@ export const FilmPage = () => {
     const [scheduleResponse, setScheduleResponse] = useState({});
 
     useEffect(() => {
-        api.get("/cinema/film/" + filmId).then((data) => setFilm(data));
-        api.get("/cinema/film/" + filmId + "/schedule").then((data) => {
-            setScheduleResponse(data);
-        });
+        api.get("/cinema/film/" + filmId).then((response) =>
+            setFilm(response.data)
+        );
+        api.get("/cinema/film/" + filmId + "/schedule").then((response) =>
+            setScheduleResponse(response.data)
+        );
     }, []);
 
     return (
@@ -38,7 +40,9 @@ export const FilmPage = () => {
                 </svg>
                 <p>Назад</p>
             </Button>
-            {film.success && <FilmInf film={film.film} />}
+            {film.success && (
+                <FilmInf film={film.film} />
+            )}
             {scheduleResponse.success && (
                 <Schedule schedules={scheduleResponse.schedules} />
             )}

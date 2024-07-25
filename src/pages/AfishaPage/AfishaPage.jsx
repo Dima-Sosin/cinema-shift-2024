@@ -4,17 +4,20 @@ import { Poster } from "./Poster/Poster";
 import { PageLayout } from "../../components/PageLayout/PageLayout";
 
 export const AfishaPage = () => {
-    const films = useLoaderData().films;
+    console.log(useLoaderData())
+    const data = useLoaderData();
     return (
         <PageLayout>
             <h2>Афиша</h2>
-            <ul className={styles.cards}>
-                {films.map((film) => (
-                    <li key={film.id}>
-                        <Poster film={film} />
-                    </li>
-                ))}
-            </ul>
+            {data.success && (
+                <ul className={styles.cards}>
+                    {data.films.map((film) => (
+                        <li key={film.id}>
+                            <Poster film={film} />
+                        </li>
+                    ))}
+                </ul>
+            )}
         </PageLayout>
     );
 };

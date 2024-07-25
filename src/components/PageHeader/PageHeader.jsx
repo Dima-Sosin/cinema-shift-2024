@@ -1,6 +1,5 @@
 import styles from "./PageHeader.module.scss";
 import { Link, Outlet } from "react-router-dom";
-import { PageLayout } from "@components/PageLayout/PageLayout"
 import { LogoIcon } from "@assets/LogoIcon";
 import { UserIcon } from "@assets/UserIcon";
 import { TicketIcon } from "@assets/TicketIcon";
@@ -8,8 +7,9 @@ import { ExitIcon } from "@assets/ExitIcon";
 
 export const PageHeader = () => (
     <>
-        <PageLayout className="header_line">
-            <header className={styles.page_header}>
+        <div className={styles.page}>
+            <div className={styles.container}>
+                <header className={styles.page_header}>
                 <div className={styles.left}>
                     <Link to="/afisha">
                         <LogoIcon />
@@ -28,7 +28,8 @@ export const PageHeader = () => (
                     <span className={styles.link}>Выйти</span>
                 </div>
             </header>
-        </PageLayout>
+            </div>
+        </div>
         <Outlet />
     </>
 );

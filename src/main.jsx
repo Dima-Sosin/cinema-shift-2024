@@ -21,26 +21,32 @@ const router = createBrowserRouter([
                 path: "afisha",
                 element: <AfishaPage />,
                 loader: async () => {
-                    return await api.get("/cinema/today");
+                    return await api
+                        .get("/cinema/today")
+                        .then((response) => response.data);
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
                 loader: async () => {
-                    return await api.get("/users/session", {}, localStorage.getItem("token"));
+                    return await api
+                        .get("/users/session")
+                        .then((response) => response.data);
                 }
             },
             {
                 path: "tickets",
                 element: <TicketsPage />,
                 loader: async () => {
-                    return await api.get("/cinema/orders", {}, localStorage.getItem("token"));
+                    return await api
+                        .get("/cinema/orders")
+                        .then(response => response.data);
                 }
             },
             {
                 path: "film/:filmId",
-                element: <FilmPage />,
+                element: <FilmPage />
             }
         ]
     }

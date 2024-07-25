@@ -1,8 +1,31 @@
-# React + Vite
+# Cinema ШИФТ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект реализует полноценное web-приложение кинотеатра, и полностью имитирует все его основные функции. На сайте можно просмотреть афишу фильмов, увидеть подробную информацио о каждом фильме, а также просмотреть список сеансов, и заказать билеты. На странице с билетами также можно просмотреть уже купленные билеты. Это возможно благодаря реализации авторизованной зоны, авторизация происходит через номер телефона и код из СМС. Благодаря авторизованной зоне также реализован профиль пользователя, в котором можно изменить или просмотреть свои данные: ФИО, номер телефона, email, город.
 
-Currently, two official plugins are available:
+### Основной стек технологий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript
+-   Сборщик приложения - [Vite](https://vitejs.dev/)
+-   Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
+-   Стилизация - [Sass](https://sass-lang.com/)
+-   Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
+-   Получение данных с сервера - [Axios](https://www.npmjs.com/package/axios)
+-   State-manager - [MobX](https://www.npmjs.com/package/mobx)
+-   Обработка и валидация форм [Formik](https://formik.org/) + [Yup](https://www.npmjs.com/package/yup)
+-   Создание масок ввода [React Input Mask](https://www.npmjs.com/package/react-input-mask)
+
+Этот проект реализует frontend часть web-приложения кинотетра, данные для вывода берутся из [backendа](https://shift-backend.onrender.com/api#/), написанного ШИФТ.
+
+---
+
+### На данный момент реализованы несколько страниц:
+
+-   **Афиша** - на этой странице представлены фильмы, которые находятся в данных момент в прокате;
+-   **Индивидуальная страница фильма** - на ней представлена основная информация о фильме, также на этой странице реализовано расписание фильма и создана возможность посмотреть занятые места в зале и выбрать интересующие;
+-   **Профиль** - страница, на которой представлены основная информация о пользователе (ФИО, номер телефона, email).
+
+|                                                Страница "Афиша"                                                 |                                               Страница "Профиль"                                                |
+| :-------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------: |
+| ![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/d899cddd-09e2-4df6-8a99-6a7a083d5f11) | ![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/056e04e4-9338-49d7-94fe-eee2df0dfebe) |
+|                                    **Страница "Фильм", основная информация**                                    |                                     **Страница "Фильм", расписание и зал**                                      |
+| ![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/14af5315-0c76-48af-bf7f-fce7a5cc645b) | ![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/11421a59-85f3-497b-b17c-a67e2d279ed1) |
