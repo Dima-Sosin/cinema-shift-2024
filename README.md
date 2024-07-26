@@ -5,7 +5,7 @@
 * Фреймворк (библиотека) - [React](https://react.dev/) + JavaScript
 * Сборщик приложения - [Vite](https://vitejs.dev/)
 * Чистота кода - [Prettier](https://prettier.io/) + [ESLint](https://eslint.org/) + [Husky](https://www.npmjs.com/package/husky) + [Lint Staged](https://www.npmjs.com/package/lint-staged)
-* Стилизация - [Sass](https://sass-lang.com/)
+* Стилизация - [Sass](https://sass-lang.com/) + [CSS modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/)
 * Маршрутизация - [React Router Dom](https://reactrouter.com/en/main)
 * Получение данных с сервера - [Axios](https://www.npmjs.com/package/axios)
 * State-manager - [MobX](https://www.npmjs.com/package/mobx)
@@ -17,11 +17,21 @@
 ___
 ### На данный момент реализованы несколько страниц:
 * **Афиша** - на этой странице представлены фильмы, которые находятся в данных момент в прокате;
-* **Индивидуальная страница фильма** - на ней представлена основная информация о фильме, также на этой странице реализовано расписание фильма и создана возможность посмотреть занятые места в зале и выбрать интересующие;
-* **Профиль** - страница, на которой представлены основная информация о пользователе (ФИО, номер телефона, email).
+* **Индивидуальная страница фильма** - на ней представлена вся подробная информация по индивидуальному фильму, также на ней можно просмотреть расписание сеансов и выбрать места для покупки в зале;
+* **Оформление заказа билетов** реализует функционал оформления заказа и состоит из двух страниц:
+  * Страница для ввода персональных данных;
+  * Страница ввода данных банковской карты;
+* **Профиль** - страница, на которой можно просмотреть и редактировать данные пользователя, такие как ФИО, номер телефона, email, город;
+* **Билеты** - страница с полным списком заказынных билетов конкретного пользователя, на ней можно вернуть билеты по конкретному заказу;
 
-|Страница "Афиша"|Страница "Профиль"|
+Также релизуется возможность входа или выхода из своего аккаунта, вход осуществляется по номеру телефона и смс коду.
+
+|Страница "Афиша"||
 |:--------------:|:--------------:|
-|![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/d899cddd-09e2-4df6-8a99-6a7a083d5f11)|![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/056e04e4-9338-49d7-94fe-eee2df0dfebe)|
+|![image](https://github.com/user-attachments/assets/b183a1dd-f166-49e8-8951-861938389e09)||
 |**Страница "Фильм", основная информация**|**Страница "Фильм", расписание и зал**|
-|![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/14af5315-0c76-48af-bf7f-fce7a5cc645b)|![image](https://github.com/Dima-Sosin/cinema-shift-2024/assets/127529532/11421a59-85f3-497b-b17c-a67e2d279ed1)|
+|![image](https://github.com/user-attachments/assets/2cb6bb43-91b8-4ef2-8078-f96b38e93c1c)|![image](https://github.com/user-attachments/assets/3c28da81-bb96-4f9d-9b3b-eb68a681a71c)|
+|**Оформление билетов, персональные данные**|**Оформление билетов, данные карты**|
+|![image](https://github.com/user-attachments/assets/0da0f4c2-fcf1-4368-80dc-3a5b79920097)|![image](https://github.com/user-attachments/assets/807b276d-8af3-401d-9ecc-d2fb508676a0)|
+|**Страница "Профиль"**|**Страница "Билеты"**|
+|![image](https://github.com/user-attachments/assets/b49f64ca-0d58-4952-8b14-9723a5efe79d)|![image](https://github.com/user-attachments/assets/64e47a19-39d1-45b6-a2a0-ec935e6e83ac)|
