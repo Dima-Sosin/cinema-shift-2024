@@ -7,5 +7,8 @@ export const Translation = {
 
     Red: "Красный",
     Green: "Зеленый",
-    Blue: "Синий"
+    Blue: "Синий",
+
+    PAYED: "Оплачено",
+    CANCELED: "Отменено"
 };

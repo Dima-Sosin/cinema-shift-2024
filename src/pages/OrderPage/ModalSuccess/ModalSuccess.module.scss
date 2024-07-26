@@ -2,19 +2,24 @@
     color: $font-color;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 24px;
     align-items: center;
 }
-
+.modal_title{
+    margin-bottom: 0;
+}
+.inf{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 .section {
     width: 100%;
 }
-
 .section_title {
     color: #637083;
     font-size: 12px;
 }
-
 .buttons {
     display: flex;
     gap: 24px;

@@ -9,37 +9,40 @@ export const ModalSuccess = ({ response, onClose }) => (
         {console.log(response)}
         <div className={styles.modal}>
             <SuccessIcon />
-            <h2>Оплата прошла успешно!</h2>
+            <h2 className={styles.modal_title}>Оплата прошла успешно!</h2>
 
-            <div className={styles.section}>
-                <p className={styles.section_title}>Номер билета</p>
-                <p>{response.order.orderNumber}</p>
-            </div>
+            <div className={styles.inf}>
+                <div className={styles.section}>
+                    <p className={styles.section_title}>Номер билета</p>
+                    <p>{response.order.orderNumber}</p>
+                </div>
 
-            <div className={styles.section}>
-                <p className={styles.section_title}>Фильм</p>
-                <p>Название фильма (рейтинг)</p>
-            </div>
+                <div className={styles.section}>
+                    <p className={styles.section_title}>Фильм</p>
+                    <p>{userData.filmName}</p>
+                </div>
 
-            <div className={styles.section}>
-                <p className={styles.section_title}>Дата и время</p>
-                <p>
-                    {userData.seance.date} {userData.seance.time}
-                </p>
-            </div>
-
-            <div className={styles.section}>
-                <p className={styles.section_title}>Места</p>
-                {userData.tickets.map(place => (
+                <div className={styles.section}>
+                    <p className={styles.section_title}>Дата и время</p>
                     <p>
-                        Ряд: {place.row}, Место: {place.column}
+                        {userData.seance.date} {userData.seance.time}
                     </p>
-                ))}
-            </div>
+                </div>
 
-            <span className={styles.section_title}>
-                Вся информация была продублирована в SMS
-            </span>
+                <div className={styles.section}>
+                    <p className={styles.section_title}>Места</p>
+                    {userData.tickets.map(place => (
+                        <p>
+                            Ряд: {place.row}, Место: {place.column}
+                        </p>
+                    ))}
+                </div>
+
+                <span className={styles.section_title}>
+                    Вся информация была продублирована в SMS
+                </span>
+            </div>
+            
 
             <Link to="/afisha" onClick={onClose}>
                 Перейти в главное меню

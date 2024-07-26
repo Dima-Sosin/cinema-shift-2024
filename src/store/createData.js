@@ -2,12 +2,16 @@ import { makeAutoObservable } from "mobx";
 
 export const createData = () => {
     return makeAutoObservable({
+        filmName: "",
         filmId: "",
         person: {},
         debitCard: {},
         seance: {},
         tickets: [],
 
+        addFilmName(filmName) {
+            this.filmName = filmName;
+        },
         addFilmId(filmId) {
             this.filmId = filmId;
         },

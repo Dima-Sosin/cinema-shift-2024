@@ -1,9 +1,15 @@
 import styles from "./FilmInf.module.scss";
 import { Rating } from "@components/Rating/Rating";
 import { api } from "@api";
+import { userData } from "../../../store/createData";
 import { Translation } from "@translation";
+import { useEffect } from "react";
 
 export function FilmInf({ film }) {
+    useEffect(() => {
+        userData.addFilmName(`${film.name} ${Translation[film.ageRating]}`)
+    }, [])
+    
     const year = () => {
         const len = film.releaseDate.length;
         const str = film.releaseDate.slice(len - 4);
@@ -25,8 +31,8 @@ export function FilmInf({ film }) {
                 </div>
             </div>
             <div className={styles.inf}>
-                <h1>
-                    {film.name} {Translation[film.ageRating]}
+                <h1 className={styles.title}>
+                    {film.name} ({Translation[film.ageRating]})
                 </h1>
                 <p className={styles.subtitle}>{film.originalName}</p>
                 <Rating
