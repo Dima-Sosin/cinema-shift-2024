@@ -42,7 +42,6 @@ export const ModalSuccess = ({ response, onClose }) => (
                     Вся информация была продублирована в SMS
                 </span>
             </div>
-            
 
             <Link to="/afisha" onClick={onClose}>
                 Перейти в главное меню

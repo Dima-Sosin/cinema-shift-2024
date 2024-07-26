@@ -7,9 +7,9 @@ import { useEffect } from "react";
 
 export function FilmInf({ film }) {
     useEffect(() => {
-        userData.addFilmName(`${film.name} ${Translation[film.ageRating]}`)
-    }, [])
-    
+        userData.addFilmName(`${film.name} ${Translation[film.ageRating]}`);
+    }, []);
+
     const year = () => {
         const len = film.releaseDate.length;
         const str = film.releaseDate.slice(len - 4);

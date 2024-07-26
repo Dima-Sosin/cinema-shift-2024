@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { api } from "@api"
+import { api } from "@api";
 import { PageLayout } from "@components/PageLayout/PageLayout";
 import { useLoaderData } from "react-router-dom";
 import { Button } from "@components/Button/Button";
@@ -9,7 +9,7 @@ import * as yup from "yup";
 
 export const ProfilePage = () => {
     const data = useLoaderData();
-    const nav = useNavigate()
+    const nav = useNavigate();
     const initialValues = {
         lastname: data.user?.lastname,
         firstname: data.user?.firstname,
@@ -29,9 +29,9 @@ export const ProfilePage = () => {
                 city: values?.city
             },
             phone: values?.phone
-        }
-        api.patch("/users/profile", updateProfile).then(response => response)
-        nav("/afisha")
+        };
+        api.patch("/users/profile", updateProfile).then(response => response);
+        nav("/afisha");
     };
 
     const validationSchema = yup.object({

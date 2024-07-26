@@ -13,7 +13,9 @@ export const PageHeader = () => {
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
 
     const Modal = {
-        true: (<LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />),
+        true: (
+            <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+        ),
         false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
     };
 
@@ -28,13 +30,23 @@ export const PageHeader = () => {
                             </Link>
                             {isAuth && (
                                 <>
-                                    <Link className={styles.block} to="/profile">
+                                    <Link
+                                        className={styles.block}
+                                        to="/profile"
+                                    >
                                         <UserIcon />
-                                        <span className={styles.link}>Профиль</span>
+                                        <span className={styles.link}>
+                                            Профиль
+                                        </span>
                                     </Link>
-                                    <Link className={styles.block} to="/tickets">
+                                    <Link
+                                        className={styles.block}
+                                        to="/tickets"
+                                    >
                                         <TicketIcon />
-                                        <span className={styles.link}>Билеты</span>
+                                        <span className={styles.link}>
+                                            Билеты
+                                        </span>
                                     </Link>
                                 </>
                             )}

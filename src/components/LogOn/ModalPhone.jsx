@@ -1,17 +1,17 @@
-import styles from "./LogOn.module.scss"
+import styles from "./LogOn.module.scss";
 import { useContext } from "react";
 import { api } from "@api";
 import { Button } from "../Button/Button.jsx";
 import { Modal } from "../Modal/Modal.jsx";
-import { ModalContext } from "./LogOn.jsx"
+import { ModalContext } from "./LogOn.jsx";
 import { FormikField } from "@components/FormikField/FormikField";
 import { Form, Formik } from "formik";
 
 export const ModalPhone = ({ onClose, setPhone }) => {
-    const { setModal } = useContext(ModalContext)
+    const { setModal } = useContext(ModalContext);
 
     const initialValues = {
-        phone: "",
+        phone: ""
     };
 
     const onSubmit = values => {
@@ -27,10 +27,7 @@ export const ModalPhone = ({ onClose, setPhone }) => {
                 <p className={styles.text}>
                     Введите номер телефона для входа в личный кабинет
                 </p>
-                <Formik
-                    initialValues={initialValues}
-                    onSubmit={onSubmit}
-                >
+                <Formik initialValues={initialValues} onSubmit={onSubmit}>
                     {formik => (
                         <Form className="form">
                             <FormikField
@@ -46,4 +43,4 @@ export const ModalPhone = ({ onClose, setPhone }) => {
             </Modal>
         </>
     );
-}
+};

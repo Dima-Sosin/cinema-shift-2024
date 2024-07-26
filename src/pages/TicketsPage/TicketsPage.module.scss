@@ -26,46 +26,46 @@
     text-align: center;
     margin-bottom: 8px;
 }
-.ticket{
+.ticket {
     font-size: 14px;
-    color:#344051;
+    color: #344051;
     text-align: center;
 }
-.ticket_inf{
+.ticket_inf {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
 }
-.status{
+.status {
     font-weight: 500;
     padding: 4px 12px;
-    
+
     border-radius: 150px;
-    background-color: #ECF9F2;
+    background-color: #ecf9f2;
 }
-.PAYED{
-    color:#4ECF53;
-    background-color: #ECF9F2;
+.PAYED {
+    color: #4ecf53;
+    background-color: #ecf9f2;
 }
-.CANCELED{
-    color:#F64C4C;
-    background-color: #FEE7E7;
+.CANCELED {
+    color: #f64c4c;
+    background-color: #fee7e7;
 }
-.ticket_number{
-    color:#97A1AF;
+.ticket_number {
+    color: #97a1af;
 }
-.modal_title{
+.modal_title {
     font-size: 20px;
     line-height: 24px;
     font-weight: 600;
-    color:$font-color;
+    color: $font-color;
     margin-top: 16px;
 }
-.modal_buttons{
+.modal_buttons {
     display: flex;
     flex-direction: column;
     width: 328px;
-    margin-top:40px;
-    gap:16px;
+    margin-top: 40px;
+    gap: 16px;
 }

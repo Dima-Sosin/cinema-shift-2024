@@ -1,13 +1,13 @@
-import styles from "./LogOut.module.scss"
-import { Button } from "../Button/Button"
-import { Modal } from "../Modal/Modal"
+import styles from "./LogOut.module.scss";
+import { Button } from "../Button/Button";
+import { Modal } from "../Modal/Modal";
 
 export const LogOut = ({ onClose, setIsAuth }) => {
     const onClick = () => {
-        localStorage.removeItem("token")
-        setIsAuth(!!localStorage.getItem("token"))
-        onClose()
-    }
+        localStorage.removeItem("token");
+        setIsAuth(!!localStorage.getItem("token"));
+        onClose();
+    };
 
     return (
         <Modal onClose={onClose}>
@@ -21,5 +21,5 @@ export const LogOut = ({ onClose, setIsAuth }) => {
                 </Button>
             </div>
         </Modal>
-    )
-}
+    );
+};
