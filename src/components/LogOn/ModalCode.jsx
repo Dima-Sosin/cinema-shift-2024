@@ -57,7 +57,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
                                 mask="+7 999 999 99 99"
                             />
                             <FormikField
-                                type="number"
+                                type="string"
                                 name="code"
                                 placeholder="Проверочный код"
                             />

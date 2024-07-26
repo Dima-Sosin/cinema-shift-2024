@@ -1,18 +1,26 @@
 import styles from "./TicketsPage.module.scss";
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { PageLayout } from "@components/PageLayout/PageLayout";
 import { Button } from "@components/Button/Button";
 import { Modal } from "@components/Modal/Modal";
 import { QuestionIcon } from "@assets/QuestionIcon";
-import { api } from "@api"
+import { api } from "@api";
 import { Translation } from "../../translation/translation";
 
 export const TicketsPage = () => {
     const data = useLoaderData();
-    const [delOrder, setDelOrder] = useState("")
+    const [delOrder, setDelOrder] = useState("");
     const [isModal, setIsModal] = useState(false);
-    console.log(data);
+    const nav = useNavigate();
+
+    const returnTicket = () => {
+        api.put("/cinema/orders/cancel", { orderId: delOrder }).then(response =>
+            window.location.reload()
+        );
+        setIsModal(false);
+    };
+
     return (
         <PageLayout>
             <h1>Билеты</h1>
@@ -29,32 +37,39 @@ export const TicketsPage = () => {
                                 <p className={styles.film_name}>
                                     Стражи галактики 3 (16+)
                                 </p>
-                                {(order.status === "PAYED") && (
+                                {order.status === "PAYED" && (
                                     <ul>
                                         {order.tickets?.map(ticket => (
-                                            <li className={styles.ticket} key={ticket._id}>
+                                            <li
+                                                className={styles.ticket}
+                                                key={ticket._id}
+                                            >
                                                 <p>
                                                     Ряд: {ticket.row}, Место:{" "}
                                                     {ticket.column}
                                                 </p>
                                             </li>
                                         ))}
-                                </ul>
+                                    </ul>
                                 )}
                             </div>
 
                             <p className={styles.ticket_inf}>
-                                <span className={`${styles.status} ${styles[order.status]}`}>{Translation[order.status]}</span>
+                                <span
+                                    className={`${styles.status} ${styles[order.status]}`}
+                                >
+                                    {Translation[order.status]}
+                                </span>
                                 <span className={styles.ticket_number}>
-                                    Код билета {order.orderNumber}  
+                                    Код билета {order.orderNumber}
                                 </span>
                             </p>
-                            {(order.status === "PAYED") && (
+                            {order.status === "PAYED" && (
                                 <Button
                                     type="default"
                                     onClick={() => {
-                                        setIsModal(true)
-                                        setDelOrder(order._id)
+                                        setIsModal(true);
+                                        setDelOrder(order._id);
                                     }}
                                 >
                                     Вернуть билет
@@ -66,18 +81,10 @@ export const TicketsPage = () => {
             )}
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
-                    <QuestionIcon/>
+                    <QuestionIcon />
                     <h3 className={styles.modal_title}>Вернуть билет?</h3>
                     <div className={styles.modal_buttons}>
-                        <Button 
-                            type="default" 
-                            onClick={() => {
-                                const body = {
-                                    orderId: delOrder
-                                }
-                                api.put("/cinema/orders/cancel", body).then(response => response)
-                                setIsModal(false)
-                            }}>
+                        <Button type="default" onClick={() => returnTicket()}>
                             Вернуть
                         </Button>
                         <Button

@@ -37,12 +37,15 @@ export const DebitCard = () => {
     };
 
     const validationSchema = yup.object({
+        pan: yup.string().required("Обязательное поле!"),
         expireDate: yup
             .string()
             .matches(
                 /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
                 "Неправильная дата!"
             )
+            .required("Обязательное поле!"),
+        cvv: yup.string().required("Обязательное поле!")
     });
 
     return (
