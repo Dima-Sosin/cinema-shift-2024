@@ -1,8 +1,22 @@
 import styles from "./TicketInf.module.scss";
-import { Button } from "@components/Button/Button";
+import { Link, useParams } from "react-router-dom";
 import { Translation } from "@translation";
+import { Button } from "@components/Button/Button";
+import { userData } from "../../../store/createData";
 
 export const TicketInf = ({ date, seance, places, sum }) => {
+    const { filmId } = useParams();
+
+    const addFilm = () => {
+        userData.addFilmId(filmId);
+        userData.addSeance(date, seance.time);
+        places?.map(row => {
+            row.num.map(place => {
+                userData.addTicket(row.row, place);
+            });
+        });
+    };
+
     return (
         <div className={styles.ticket_inf}>
             <div className={styles.block}>
@@ -36,7 +50,11 @@ export const TicketInf = ({ date, seance, places, sum }) => {
             <div className={styles.block}>
                 <div className={styles.price}>Сумма: {sum} ₽</div>
             </div>
-            <Button type="primary">Купить</Button>
+            <Link to="/order">
+                <Button type="primary" onClick={() => addFilm()}>
+                    Купить
+                </Button>
+            </Link>
         </div>
     );
 };

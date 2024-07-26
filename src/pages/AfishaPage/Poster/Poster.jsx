@@ -2,7 +2,7 @@ import styles from "./Poster.module.scss";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "@components/Rating/Rating";
 import { Button } from "@components/Button/Button";
-import { BASE_URL } from "@api";
+import { api } from "@api";
 
 export function Poster({ film }) {
     const navigate = useNavigate();
@@ -21,7 +21,7 @@ export function Poster({ film }) {
         <div className={styles.poster} onClick={filmPage}>
             <div className={styles.img}>
                 <img
-                    src={BASE_URL + film.img}
+                    src={api.defaults.baseURL + film.img}
                     alt={`Изображение постера к фильму "${film.name}"`}
                 />
                 <div className={styles.block}>

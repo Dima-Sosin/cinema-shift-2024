@@ -1,0 +1,71 @@
+.orders {
+    max-width: 328px;
+}
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #e3e5e5;
+    border-radius: 16px;
+    gap: 19px;
+}
+.date_time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #97a1af;
+}
+.film_name {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: $font-color;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.ticket {
+    font-size: 14px;
+    color: #344051;
+    text-align: center;
+}
+.ticket_inf {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+.status {
+    font-weight: 500;
+    padding: 4px 12px;
+
+    border-radius: 150px;
+    background-color: #ecf9f2;
+}
+.PAYED {
+    color: #4ecf53;
+    background-color: #ecf9f2;
+}
+.CANCELED {
+    color: #f64c4c;
+    background-color: #fee7e7;
+}
+.ticket_number {
+    color: #97a1af;
+}
+.modal_title {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 600;
+    color: $font-color;
+    margin-top: 16px;
+}
+.modal_buttons {
+    display: flex;
+    flex-direction: column;
+    width: 328px;
+    margin-top: 40px;
+    gap: 16px;
+}

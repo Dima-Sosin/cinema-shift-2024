@@ -9,6 +9,7 @@ import { ErrorPage } from "./pages/ErrorPage/ErrorPage";
 import { AfishaPage } from "./pages/AfishaPage/AfishaPage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { TicketsPage } from "./pages/TicketsPage/TicketsPage";
+import { OrderPage } from "./pages/OrderPage/OrderPage";
 import { FilmPage } from "./pages/FilmPage/FilmPage";
 
 const router = createBrowserRouter([
@@ -21,26 +22,41 @@ const router = createBrowserRouter([
                 path: "afisha",
                 element: <AfishaPage />,
                 loader: async () => {
-                    return await api.get("/cinema/today");
+                    return await api
+                        .get("/cinema/today")
+                        .then(response => response.data);
                 }
             },
             {
                 path: "profile",
                 element: <ProfilePage />,
                 loader: async () => {
-                    return await api.get("/users/session", {}, localStorage.getItem("token"));
+                    return await api
+                        .get("/users/session")
+                        .then(response => response.data);
                 }
             },
             {
                 path: "tickets",
                 element: <TicketsPage />,
                 loader: async () => {
-                    return await api.get("/cinema/orders", {}, localStorage.getItem("token"));
+                    return await api
+                        .get("/cinema/orders")
+                        .then(response => response.data);
+                }
+            },
+            {
+                path: "order",
+                element: <OrderPage />,
+                loader: async () => {
+                    return await api
+                        .get("/users/session")
+                        .then(response => response.data);
                 }
             },
             {
                 path: "film/:filmId",
-                element: <FilmPage />,
+                element: <FilmPage />
             }
         ]
     }

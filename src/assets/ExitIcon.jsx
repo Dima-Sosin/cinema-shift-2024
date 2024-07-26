@@ -11,4 +11,4 @@ export const ExitIcon = () => (
             fill="currentColor"
         />
     </svg>
-)
+);

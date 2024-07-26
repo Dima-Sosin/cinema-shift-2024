@@ -14,10 +14,12 @@ export const FilmPage = () => {
     const [scheduleResponse, setScheduleResponse] = useState({});
 
     useEffect(() => {
-        api.get("/cinema/film/" + filmId).then((data) => setFilm(data));
-        api.get("/cinema/film/" + filmId + "/schedule").then((data) => {
-            setScheduleResponse(data);
-        });
+        api.get("/cinema/film/" + filmId).then(response =>
+            setFilm(response.data)
+        );
+        api.get("/cinema/film/" + filmId + "/schedule").then(response =>
+            setScheduleResponse(response.data)
+        );
     }, []);
 
     return (

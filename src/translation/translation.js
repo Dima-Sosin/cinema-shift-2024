@@ -4,8 +4,11 @@ export const Translation = {
     PG13: "12+",
     PG: "6+",
     G: "0+",
-    
+
     Red: "Красный",
     Green: "Зеленый",
-    Blue: "Синий"
-}
+    Blue: "Синий",
+
+    PAYED: "Оплачено",
+    CANCELED: "Отменено"
+};

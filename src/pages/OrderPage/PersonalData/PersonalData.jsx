@@ -1,15 +1,17 @@
-import { useNavigate } from "react-router-dom";
-import { api } from "@api";
-import { PageLayout } from "@components/PageLayout/PageLayout";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { Button } from "@components/Button/Button";
+import { PageContext } from "../OrderPage";
 import { FormikField } from "@components/FormikField/FormikField";
+import { Button } from "@components/Button/Button";
+import { userData } from "../../../store/createData";
+import { toJS } from "mobx";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
-export const ProfilePage = () => {
+export const PersonalData = () => {
+    const { setPage } = useContext(PageContext);
     const data = useLoaderData();
-    const nav = useNavigate();
+
     const initialValues = {
         lastname: data.user?.lastname,
         firstname: data.user?.firstname,
@@ -20,18 +22,8 @@ export const ProfilePage = () => {
     };
 
     const onSubmit = values => {
-        const updateProfile = {
-            profile: {
-                firstname: values?.firstname,
-                middlename: values?.middlename,
-                lastname: values?.lastname,
-                email: values?.email,
-                city: values?.city
-            },
-            phone: values?.phone
-        };
-        api.patch("/users/profile", updateProfile).then(response => response);
-        nav("/afisha");
+        userData.addPerson(values);
+        setPage("debitCard");
     };
 
     const validationSchema = yup.object({
@@ -52,6 +44,7 @@ export const ProfilePage = () => {
                 /^[A-ZА-Я-]+$/i,
                 "Отчество должно содержать только буквы!"
             ),
+        phone: yup.string().required("Обязательное поле!"),
         email: yup
             .string()
             .max(100, "Слишком много символов!")
@@ -66,8 +59,8 @@ export const ProfilePage = () => {
     });
 
     return (
-        <PageLayout>
-            <h1>Профиль</h1>
+        <>
+            <h1>Введите ваши данные</h1>
             {data.success && (
                 <Formik
                     initialValues={initialValues}
@@ -99,7 +92,7 @@ export const ProfilePage = () => {
                                 type="text"
                                 name="phone"
                                 placeholder="Телефон"
-                                readOnly={true}
+                                mask="+7 999 999 99 99"
                             />
                             <FormikField
                                 label="Email"
@@ -113,11 +106,11 @@ export const ProfilePage = () => {
                                 name="city"
                                 placeholder="Город"
                             />
-                            <Button type="primary">Обновить данные</Button>
+                            <Button type="primary">Продолжить</Button>
                         </Form>
                     )}
                 </Formik>
             )}
-        </PageLayout>
+        </>
     );
 };

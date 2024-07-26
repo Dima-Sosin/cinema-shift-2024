@@ -1,9 +1,15 @@
 import styles from "./FilmInf.module.scss";
 import { Rating } from "@components/Rating/Rating";
-import { BASE_URL } from "@api";
+import { api } from "@api";
+import { userData } from "../../../store/createData";
 import { Translation } from "@translation";
+import { useEffect } from "react";
 
 export function FilmInf({ film }) {
+    useEffect(() => {
+        userData.addFilmName(`${film.name} ${Translation[film.ageRating]}`);
+    }, []);
+
     const year = () => {
         const len = film.releaseDate.length;
         const str = film.releaseDate.slice(len - 4);
@@ -14,7 +20,7 @@ export function FilmInf({ film }) {
         <section className={styles.container}>
             <div className={styles.img}>
                 <img
-                    src={BASE_URL + film.img}
+                    src={api.defaults.baseURL + film.img}
                     alt={`Изображение постера к фильму "${film.name}"`}
                 />
                 <div className={styles.block}>
@@ -26,7 +32,7 @@ export function FilmInf({ film }) {
             </div>
             <div className={styles.inf}>
                 <h1 className={styles.title}>
-                    {film.name} {Translation[film.ageRating]}
+                    {film.name} ({Translation[film.ageRating]})
                 </h1>
                 <p className={styles.subtitle}>{film.originalName}</p>
                 <Rating
@@ -40,7 +46,7 @@ export function FilmInf({ film }) {
                 <div className={styles.text}>
                     <span className={styles.span}>Актеры: </span>
                     <ul>
-                        {film.actors.map((actor) => (
+                        {film.actors.map(actor => (
                             <li className={styles.elem} key={actor.id}>
                                 {actor.fullName}
                             </li>
@@ -50,7 +56,7 @@ export function FilmInf({ film }) {
                 <div className={styles.text}>
                     <span className={styles.span}>Продюссеры: </span>
                     <ul>
-                        {film.directors.map((director) => (
+                        {film.directors.map(director => (
                             <li className={styles.elem} key={director.id}>
                                 {director.fullName}
                             </li>

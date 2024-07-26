@@ -11,4 +11,4 @@ export const CloseIcon = () => (
             fill="currentColor"
         />
     </svg>
-)
+);

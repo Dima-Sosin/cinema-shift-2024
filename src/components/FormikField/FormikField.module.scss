@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 24px;
+    width: 100%;
+}
+.label {
+    font-size: 14px;
+    color: $font-color;
+    margin-bottom: 5px;
+}
+.input {
+    padding: 12px;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    color: $font-color;
+    &:hover {
+        border-color: black;
+    }
+    &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 1px $primary;
+    }
+}
+input[readonly] {
+    background-color: #f3f4f6;
+    &:hover {
+        border-color: #ced2da;
+    }
+    &:focus {
+        outline: none;
+        border-color: #ced2da;
+        box-shadow: none;
+    }
+}
+.error {
+    position: absolute;
+    left: 0;
+    bottom: -22px;
+    font-size: 14px;
+    color: red;
+}
