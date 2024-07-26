@@ -1,7 +1,7 @@
 import { PageLayout } from "@components/PageLayout/PageLayout";
 import { useLoaderData } from "react-router-dom";
-import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
+import { FormikField } from "@components/FormikField/FormikField";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 

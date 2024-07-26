@@ -67,7 +67,7 @@ export const TicketsPage = () => {
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
                     <QuestionIcon/>
-                    <p className={styles.modal_title}>Вернуть билет?</p>
+                    <h3 className={styles.modal_title}>Вернуть билет?</h3>
                     <div className={styles.modal_buttons}>
                         <Button 
                             type="default" 
