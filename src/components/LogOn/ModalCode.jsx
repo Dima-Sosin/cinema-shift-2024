@@ -39,7 +39,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
     return (
         <>
             <Modal onClose={onClose}>
-                <h2>Авторизация</h2>
+                <h3>Авторизация</h3>
                 <p className={styles.text}>
                     Введите проверочный код для входа в личный кабинет
                 </p>

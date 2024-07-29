@@ -43,8 +43,8 @@ export const ModalSuccess = ({ response, onClose }) => (
                 </span>
             </div>
 
-            <Link to="/afisha" onClick={onClose}>
-                Перейти в главное меню
+            <Link to="/tickets" onClick={onClose}>
+                Перейти в личный кабинет
             </Link>
         </div>
     </Modal>

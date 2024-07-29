@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "@api";
 import { PageLayout } from "@components/PageLayout/PageLayout";
+import { LogOn } from "@components/LogOn/LogOn";
+import { LogOut } from "@components/LogOut/LogOut";
 import { useLoaderData } from "react-router-dom";
 import { Button } from "@components/Button/Button";
 import { FormikField } from "@components/FormikField/FormikField";
@@ -10,6 +13,17 @@ import * as yup from "yup";
 export const ProfilePage = () => {
     const data = useLoaderData();
     const nav = useNavigate();
+
+    const [isModal, setIsModal] = useState(false);
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
+
+    const Modal = {
+        true: (
+            <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+        ),
+        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+    };
+
     const initialValues = {
         lastname: data.user?.lastname,
         firstname: data.user?.firstname,
@@ -69,55 +83,62 @@ export const ProfilePage = () => {
         <PageLayout>
             <h1>Профиль</h1>
             {data.success && (
-                <Formik
-                    initialValues={initialValues}
-                    onSubmit={onSubmit}
-                    validationSchema={validationSchema}
-                >
-                    {formik => (
-                        <Form className="form">
-                            <FormikField
-                                label="Фамилия*"
-                                type="text"
-                                name="lastname"
-                                placeholder="Фамилия"
-                            />
-                            <FormikField
-                                label="Имя*"
-                                type="text"
-                                name="firstname"
-                                placeholder="Имя"
-                            />
-                            <FormikField
-                                label="Отчество"
-                                type="text"
-                                name="middlename"
-                                placeholder="Отчество"
-                            />
-                            <FormikField
-                                label="Телефон*"
-                                type="text"
-                                name="phone"
-                                placeholder="Телефон"
-                                readOnly={true}
-                            />
-                            <FormikField
-                                label="Email"
-                                type="text"
-                                name="email"
-                                placeholder="Email"
-                            />
-                            <FormikField
-                                label="Город"
-                                type="text"
-                                name="city"
-                                placeholder="Город"
-                            />
-                            <Button type="primary">Обновить данные</Button>
-                        </Form>
-                    )}
-                </Formik>
+                <>
+                    <Formik
+                        initialValues={initialValues}
+                        onSubmit={onSubmit}
+                        validationSchema={validationSchema}
+                    >
+                        {formik => (
+                            <Form className="form">
+                                <FormikField
+                                    label="Фамилия*"
+                                    type="text"
+                                    name="lastname"
+                                    placeholder="Фамилия"
+                                />
+                                <FormikField
+                                    label="Имя*"
+                                    type="text"
+                                    name="firstname"
+                                    placeholder="Имя"
+                                />
+                                <FormikField
+                                    label="Отчество"
+                                    type="text"
+                                    name="middlename"
+                                    placeholder="Отчество"
+                                />
+                                <FormikField
+                                    label="Телефон*"
+                                    type="text"
+                                    name="phone"
+                                    placeholder="Телефон"
+                                    readOnly={true}
+                                />
+                                <FormikField
+                                    label="Email"
+                                    type="text"
+                                    name="email"
+                                    placeholder="Email"
+                                />
+                                <FormikField
+                                    label="Город"
+                                    type="text"
+                                    name="city"
+                                    placeholder="Город"
+                                />
+                                <Button type="primary">Обновить данные</Button>
+                                <br />
+                            </Form>
+                        )}
+                    </Formik>
+                    <Button type="default" onClick={() => setIsModal(true)}>
+                        Выйти из аккаунта
+                    </Button>
+                </>
             )}
+            {isModal && Modal[isAuth]}
         </PageLayout>
     );
 };

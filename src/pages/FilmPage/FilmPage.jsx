@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, ScrollRestoration } from "react-router-dom";
 import { api } from "@api";
 import { PageLayout } from "@components/PageLayout/PageLayout";
 import { FilmInf } from "./FilmInf/FilmInf";
@@ -24,7 +24,7 @@ export const FilmPage = () => {
 
     return (
         <PageLayout>
-            <Button type="link" onClick={() => nav(-1)}>
+            <Button type="link" onClick={() => nav(-1, {replace: true})}>
                 <svg
                     width="8"
                     height="12"
@@ -44,6 +44,7 @@ export const FilmPage = () => {
             {scheduleResponse.success && (
                 <Schedule schedules={scheduleResponse.schedules} />
             )}
+            <ScrollRestoration />
         </PageLayout>
     );
 };

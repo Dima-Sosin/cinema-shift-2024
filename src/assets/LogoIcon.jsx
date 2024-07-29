@@ -1,5 +1,6 @@
-export const LogoIcon = () => (
+export const LogoIcon = ({className}) => (
     <svg
+        className={className}
         width="103"
         height="40"
         viewBox="0 0 103 40"
