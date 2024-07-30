@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "@api";
 import { PageLayout } from "@components/PageLayout/PageLayout";
+import { LogOn } from "@components/LogOn/LogOn";
+import { LogOut } from "@components/LogOut/LogOut";
 import { useLoaderData } from "react-router-dom";
 import { Button } from "@components/Button/Button";
 import { FormikField } from "@components/FormikField/FormikField";
@@ -10,13 +13,24 @@ import * as yup from "yup";
 export const ProfilePage = () => {
     const data = useLoaderData();
     const nav = useNavigate();
+
+    const [isModal, setIsModal] = useState(false);
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
+
+    const Modal = {
+        true: (
+            <LogOut onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+        ),
+        false: <LogOn onClose={() => setIsModal(false)} setIsAuth={setIsAuth} />
+    };
+
     const initialValues = {
-        lastname: data.user?.lastname,
-        firstname: data.user?.firstname,
-        middlename: data.user?.middlename,
-        phone: data.user?.phone,
-        email: data.user?.email,
-        city: data.user?.city
+        lastname: data?.user?.lastname,
+        firstname: data?.user?.firstname,
+        middlename: data?.user?.middlename,
+        phone: data?.user?.phone,
+        email: data?.user?.email,
+        city: data?.user?.city
     };
 
     const onSubmit = values => {
@@ -68,13 +82,13 @@ export const ProfilePage = () => {
     return (
         <PageLayout>
             <h1>Профиль</h1>
-            {data.success && (
+            {data?.success && (
                 <Formik
                     initialValues={initialValues}
                     onSubmit={onSubmit}
                     validationSchema={validationSchema}
                 >
-                    {formik => (
+                    {() => (
                         <Form className="form">
                             <FormikField
                                 label="Фамилия*"
@@ -113,11 +127,18 @@ export const ProfilePage = () => {
                                 name="city"
                                 placeholder="Город"
                             />
-                            <Button type="primary">Обновить данные</Button>
+                            <Button type="submit" view="primary">
+                                Обновить данные
+                            </Button>
+                            <br />
                         </Form>
                     )}
                 </Formik>
             )}
+            <Button view="default" onClick={() => setIsModal(true)}>
+                {isAuth ? "Выйти из аккаунта" : "Войти в аккаунт"}
+            </Button>
+            {isModal && Modal[isAuth]}
         </PageLayout>
     );
 };

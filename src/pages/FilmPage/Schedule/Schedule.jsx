@@ -1,11 +1,16 @@
 import styles from "./Schedule.module.scss";
 import { useState } from "react";
 import { Times } from "@components/Times/Times";
-import { Hall } from "../Hall/Hall";
+import { ChooseTickets } from "../ChooseTickets/ChooseTickets";
 
 export const Schedule = ({ schedules }) => {
     const [schedule, setSchedule] = useState(schedules[0]);
     const [seance, setSeance] = useState(schedules[0].seances[0]);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementsByName("date")[0].checked = true;
+        document.getElementsByName("time")[0].checked = true;
+    });
 
     return (
         <>
@@ -60,7 +65,7 @@ export const Schedule = ({ schedules }) => {
                     />
                 </div>
             </section>
-            <Hall date={schedule.date} seance={seance} />
+            <ChooseTickets date={schedule.date} seance={seance} />
         </>
     );
 };

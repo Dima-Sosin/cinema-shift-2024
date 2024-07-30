@@ -51,7 +51,7 @@ export const TicketInf = ({ date, seance, places, sum }) => {
                 <div className={styles.price}>Сумма: {sum} ₽</div>
             </div>
             <Link to="/order">
-                <Button type="primary" onClick={() => addFilm()}>
+                <Button view="primary" onClick={() => addFilm()}>
                     Купить
                 </Button>
             </Link>

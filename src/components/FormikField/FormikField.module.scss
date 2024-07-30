@@ -15,6 +15,8 @@
     border: 1px solid lightgray;
     border-radius: 7px;
     color: $font-color;
+    width: 100%;
+    box-sizing: border-box;
     &:hover {
         border-color: black;
     }

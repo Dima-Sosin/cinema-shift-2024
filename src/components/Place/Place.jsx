@@ -1,13 +1,13 @@
 import styles from "./Place.module.scss";
 
-export const Place = ({ code, row, number, type, onClick }) => (
-    <li className={styles.place} key={code}>
+export const Place = ({ id, number, type, onClick }) => (
+    <div className={styles.place}>
         <input
             type="checkbox"
-            id={String(row) + String(number)}
+            id={id}
             disabled={type === "BLOCKED"}
             onClick={onClick}
         />
-        <label htmlFor={String(row) + String(number)}>{number}</label>
-    </li>
+        <label htmlFor={id}>{number}</label>
+    </div>
 );

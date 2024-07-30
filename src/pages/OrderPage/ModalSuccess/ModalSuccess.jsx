@@ -6,7 +6,6 @@ import { userData } from "../../../store/createData";
 
 export const ModalSuccess = ({ response, onClose }) => (
     <Modal onClose={() => onClose()}>
-        {console.log(response)}
         <div className={styles.modal}>
             <SuccessIcon />
             <h2 className={styles.modal_title}>Оплата прошла успешно!</h2>
@@ -31,11 +30,15 @@ export const ModalSuccess = ({ response, onClose }) => (
 
                 <div className={styles.section}>
                     <p className={styles.section_title}>Места</p>
-                    {userData.tickets.map(place => (
-                        <p>
-                            Ряд: {place.row}, Место: {place.column}
-                        </p>
-                    ))}
+                    <ul>
+                        {userData.tickets.map((place, i) => (
+                            <li key={i}>
+                                <p>
+                                    Ряд: {place.row}, Место: {place.column}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <span className={styles.section_title}>
@@ -43,8 +46,8 @@ export const ModalSuccess = ({ response, onClose }) => (
                 </span>
             </div>
 
-            <Link to="/afisha" onClick={onClose}>
-                Перейти в главное меню
+            <Link to="/tickets" onClick={onClose}>
+                Перейти в личный кабинет
             </Link>
         </div>
     </Modal>

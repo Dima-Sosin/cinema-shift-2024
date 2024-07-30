@@ -1,9 +1,10 @@
 import styles from "./TicketsPage.module.scss";
 import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { PageLayout } from "@components/PageLayout/PageLayout";
 import { Button } from "@components/Button/Button";
 import { Modal } from "@components/Modal/Modal";
+import { LogOn } from "@components/LogOn/LogOn";
 import { QuestionIcon } from "@assets/QuestionIcon";
 import { api } from "@api";
 import { Translation } from "../../translation/translation";
@@ -12,7 +13,9 @@ export const TicketsPage = () => {
     const data = useLoaderData();
     const [delOrder, setDelOrder] = useState("");
     const [isModal, setIsModal] = useState(false);
-    const nav = useNavigate();
+    const [isLog, setIsLog] = useState(false);
+
+    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
 
     const returnTicket = () => {
         api.put("/cinema/orders/cancel", { orderId: delOrder }).then(response =>
@@ -24,7 +27,7 @@ export const TicketsPage = () => {
     return (
         <PageLayout>
             <h1>Билеты</h1>
-            {data.success && (
+            {data?.success && (
                 <ul className={styles.orders}>
                     {data.orders?.map(order => (
                         <li className={styles.order} key={order._id}>
@@ -66,7 +69,7 @@ export const TicketsPage = () => {
                             </p>
                             {order.status === "PAYED" && (
                                 <Button
-                                    type="default"
+                                    view="default"
                                     onClick={() => {
                                         setIsModal(true);
                                         setDelOrder(order._id);
@@ -79,16 +82,24 @@ export const TicketsPage = () => {
                     ))}
                 </ul>
             )}
+            {!data && (
+                <Button view="default" onClick={() => setIsLog(true)}>
+                    Войти в аккаунт
+                </Button>
+            )}
+            {isLog && (
+                <LogOn onClose={() => setIsLog(false)} setIsAuth={setIsAuth} />
+            )}
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
                     <QuestionIcon />
                     <h3 className={styles.modal_title}>Вернуть билет?</h3>
                     <div className={styles.modal_buttons}>
-                        <Button type="default" onClick={() => returnTicket()}>
+                        <Button view="default" onClick={() => returnTicket()}>
                             Вернуть
                         </Button>
                         <Button
-                            type="primary"
+                            view="primary"
                             onClick={() => setIsModal(false)}
                         >
                             Отменить

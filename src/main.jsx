@@ -31,32 +31,55 @@ const router = createBrowserRouter([
                 path: "profile",
                 element: <ProfilePage />,
                 loader: async () => {
-                    return await api
-                        .get("/users/session")
-                        .then(response => response.data);
+                    if (!!localStorage.getItem("token")) {
+                        return await api
+                            .get("/users/session")
+                            .then(response => response.data);
+                    } else {
+                        return null;
+                    }
                 }
             },
             {
                 path: "tickets",
                 element: <TicketsPage />,
                 loader: async () => {
-                    return await api
-                        .get("/cinema/orders")
-                        .then(response => response.data);
+                    if (!!localStorage.getItem("token")) {
+                        return await api
+                            .get("/cinema/orders")
+                            .then(response => response.data);
+                    } else {
+                        return null;
+                    }
                 }
             },
             {
                 path: "order",
                 element: <OrderPage />,
                 loader: async () => {
-                    return await api
-                        .get("/users/session")
-                        .then(response => response.data);
+                    if (!!localStorage.getItem("token")) {
+                        return await api
+                            .get("/users/session")
+                            .then(response => response.data);
+                    } else {
+                        return null;
+                    }
                 }
             },
             {
                 path: "film/:filmId",
-                element: <FilmPage />
+                element: <FilmPage />,
+                loader: async ({ params }) => {
+                    let film = {};
+                    let scheduleResponse = {};
+                    await api
+                        .get("/cinema/film/" + params.filmId)
+                        .then(response => (film = response.data));
+                    await api
+                        .get("/cinema/film/" + params.filmId + "/schedule")
+                        .then(response => (scheduleResponse = response.data));
+                    return { film: film, scheduleResponse: scheduleResponse };
+                }
             }
         ]
     }

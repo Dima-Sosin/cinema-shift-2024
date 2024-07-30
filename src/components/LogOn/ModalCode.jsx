@@ -32,6 +32,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
             api.defaults.headers.common["Authorization"] =
                 `Bearer ${response.data.token}`;
             setIsAuth(!!localStorage.getItem("token"));
+            window.location.reload();
         });
         onClose();
     };
@@ -39,7 +40,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
     return (
         <>
             <Modal onClose={onClose}>
-                <h2>Авторизация</h2>
+                <h3>Авторизация</h3>
                 <p className={styles.text}>
                     Введите проверочный код для входа в личный кабинет
                 </p>
@@ -61,7 +62,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
                                 name="code"
                                 placeholder="Проверочный код"
                             />
-                            <Button type="primary">Войти</Button>
+                            <Button view="primary">Войти</Button>
                         </Form>
                     )}
                 </Formik>

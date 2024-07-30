@@ -23,7 +23,7 @@ export const ModalPhone = ({ onClose, setPhone }) => {
     return (
         <>
             <Modal onClose={onClose}>
-                <h2>Авторизация</h2>
+                <h3>Авторизация</h3>
                 <p className={styles.text}>
                     Введите номер телефона для входа в личный кабинет
                 </p>
@@ -36,7 +36,7 @@ export const ModalPhone = ({ onClose, setPhone }) => {
                                 placeholder="Телефон"
                                 mask="+7 999 999 99 99"
                             />
-                            <Button type="primary">Продолжить</Button>
+                            <Button view="primary">Продолжить</Button>
                         </Form>
                     )}
                 </Formik>
