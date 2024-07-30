@@ -41,7 +41,7 @@ export const DebitCard = () => {
         expireDate: yup
             .string()
             .matches(
-                /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/i,
+                /^((0[1-9])|(1[0-2]))\/((2[4-9])|([3-9][0-9]))$/,
                 "Неправильная дата!"
             )
             .required("Обязательное поле!"),
@@ -56,7 +56,7 @@ export const DebitCard = () => {
                 onSubmit={onSubmit}
                 validationSchema={validationSchema}
             >
-                {formik => (
+                {() => (
                     <Form className="form">
                         <div className={styles.block}>
                             <FormikField

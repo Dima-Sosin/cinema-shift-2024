@@ -13,12 +13,12 @@ export const PersonalData = () => {
     const data = useLoaderData();
 
     const initialValues = {
-        lastname: data.user?.lastname,
-        firstname: data.user?.firstname,
-        middlename: data.user?.middlename,
-        phone: data.user?.phone,
-        email: data.user?.email,
-        city: data.user?.city
+        lastname: data?.user?.lastname,
+        firstname: data?.user?.firstname,
+        middlename: data?.user?.middlename,
+        phone: data?.user?.phone,
+        email: data?.user?.email,
+        city: data?.user?.city
     };
 
     const onSubmit = values => {
@@ -61,58 +61,56 @@ export const PersonalData = () => {
     return (
         <>
             <h1>Введите ваши данные</h1>
-            {data.success && (
-                <Formik
-                    initialValues={initialValues}
-                    onSubmit={onSubmit}
-                    validationSchema={validationSchema}
-                >
-                    {formik => (
-                        <Form className="form">
-                            <FormikField
-                                label="Фамилия*"
-                                type="text"
-                                name="lastname"
-                                placeholder="Фамилия"
-                            />
-                            <FormikField
-                                label="Имя*"
-                                type="text"
-                                name="firstname"
-                                placeholder="Имя"
-                            />
-                            <FormikField
-                                label="Отчество"
-                                type="text"
-                                name="middlename"
-                                placeholder="Отчество"
-                            />
-                            <FormikField
-                                label="Телефон*"
-                                type="text"
-                                name="phone"
-                                placeholder="Телефон"
-                                mask="+7 999 999 99 99"
-                            />
-                            <FormikField
-                                label="Email"
-                                type="text"
-                                name="email"
-                                placeholder="Email"
-                            />
-                            <FormikField
-                                label="Город"
-                                type="text"
-                                name="city"
-                                placeholder="Город"
-                            />
-                            <Button type="submit" view="primary">
-                                Продолжить
-                            </Button>
-                        </Form>
-                    )}
-                </Formik>
-            )}
+            <Formik
+                initialValues={initialValues}
+                onSubmit={onSubmit}
+                validationSchema={validationSchema}
+            >
+                {() => (
+                    <Form className="form">
+                        <FormikField
+                            label="Фамилия*"
+                            type="text"
+                            name="lastname"
+                            placeholder="Фамилия"
+                        />
+                        <FormikField
+                            label="Имя*"
+                            type="text"
+                            name="firstname"
+                            placeholder="Имя"
+                        />
+                        <FormikField
+                            label="Отчество"
+                            type="text"
+                            name="middlename"
+                            placeholder="Отчество"
+                        />
+                        <FormikField
+                            label="Телефон*"
+                            type="text"
+                            name="phone"
+                            placeholder="Телефон"
+                            mask="+7 999 999 99 99"
+                        />
+                        <FormikField
+                            label="Email"
+                            type="text"
+                            name="email"
+                            placeholder="Email"
+                        />
+                        <FormikField
+                            label="Город"
+                            type="text"
+                            name="city"
+                            placeholder="Город"
+                        />
+                        <Button type="submit" view="primary">
+                            Продолжить
+                        </Button>
+                    </Form>
+                )}
+            </Formik>
         </>
     );
 };

@@ -65,7 +65,8 @@
 .modal_buttons {
     display: flex;
     flex-direction: column;
-    width: 328px;
+    max-width: 328px;
+    width: 100%;
     margin-top: 40px;
     gap: 16px;
 }

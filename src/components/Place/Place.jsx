@@ -7,7 +7,6 @@ export const Place = ({ id, number, type, onClick }) => (
             id={id}
             disabled={type === "BLOCKED"}
             onClick={onClick}
-            defaultChecked={false}
         />
         <label htmlFor={id}>{number}</label>
     </div>

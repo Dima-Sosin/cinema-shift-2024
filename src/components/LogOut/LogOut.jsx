@@ -8,6 +8,7 @@ export const LogOut = ({ onClose, setIsAuth }) => {
         localStorage.removeItem("token");
         setIsAuth(!!localStorage.getItem("token"));
         onClose();
+        window.location.reload();
     };
 
     return (

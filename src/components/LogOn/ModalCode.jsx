@@ -32,6 +32,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
             api.defaults.headers.common["Authorization"] =
                 `Bearer ${response.data.token}`;
             setIsAuth(!!localStorage.getItem("token"));
+            window.location.reload();
         });
         onClose();
     };
