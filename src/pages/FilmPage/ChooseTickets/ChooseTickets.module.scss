@@ -1,0 +1,89 @@
+.choose_tickets {
+    margin: 24px 0;
+}
+.choice_place {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.hall_plan {
+    display: flex;
+    position: relative;
+}
+.row_numbers {
+    width: 30px;
+}
+.row_title {
+    font-size: 14px;
+    margin-top: 40px;
+    text-align: center;
+}
+.row_name {
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+}
+.hall {
+    display: flex;
+    flex-direction: column;
+}
+.screen_title {
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 8px;
+}
+.screen {
+    height: 4px;
+    width: 100%;
+    background-color: #ced2da;
+    border-radius: 16px;
+    margin-bottom: 24px;
+}
+.rows {
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    display: flex;
+    flex-direction: column;
+}
+.places {
+    display: flex;
+}
+
+@media (max-width: 1019px) {
+    .choice_place {
+        flex-direction: column;
+        align-items: center;
+    }
+    .hall_plan {
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media (max-width: 769px) {
+    .hall {
+        width: calc(100% - -0px);
+    }
+    .rows {
+        overflow-x: scroll;
+        width: 100%;
+    }
+    .row {
+        width: 100%;
+    }
+    .places {
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 426px) {
+    .hall {
+        width: calc(100% - 20px);
+    }
+    .row_numbers {
+        margin-left: -10px;
+    }
+}

@@ -29,18 +29,22 @@
 @media (max-width: 1019px) {
     .ticket_inf {
         margin-top: 20px;
+        width: 400px;
     }
     .block {
         text-align: center;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .inf {
         font-size: 14px;
         line-height: 20px;
     }
 }
 @media (max-width: 426px) {
+    .ticket_inf {
+        width: 100%;
+    }
     .inf {
         color: $font-color;
     }

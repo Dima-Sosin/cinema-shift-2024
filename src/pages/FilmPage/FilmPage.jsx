@@ -24,7 +24,7 @@ export const FilmPage = () => {
 
     return (
         <PageLayout>
-            <Button type="link" onClick={() => nav(-1, {replace: true})}>
+            <Button type="link" onClick={() => nav(-1)}>
                 <svg
                     width="8"
                     height="12"

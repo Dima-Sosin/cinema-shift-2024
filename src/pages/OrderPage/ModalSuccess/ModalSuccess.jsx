@@ -6,7 +6,6 @@ import { userData } from "../../../store/createData";
 
 export const ModalSuccess = ({ response, onClose }) => (
     <Modal onClose={() => onClose()}>
-        {console.log(response)}
         <div className={styles.modal}>
             <SuccessIcon />
             <h2 className={styles.modal_title}>Оплата прошла успешно!</h2>

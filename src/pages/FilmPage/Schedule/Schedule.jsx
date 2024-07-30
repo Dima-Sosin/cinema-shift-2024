@@ -1,7 +1,7 @@
 import styles from "./Schedule.module.scss";
 import { useState } from "react";
 import { Times } from "@components/Times/Times";
-import { Hall } from "../Hall/Hall";
+import { ChooseTickets } from "../ChooseTickets/ChooseTickets";
 
 export const Schedule = ({ schedules }) => {
     const [schedule, setSchedule] = useState(schedules[0]);
@@ -60,7 +60,7 @@ export const Schedule = ({ schedules }) => {
                     />
                 </div>
             </section>
-            <Hall date={schedule.date} seance={seance} />
+            <ChooseTickets date={schedule.date} seance={seance} />
         </>
     );
 };

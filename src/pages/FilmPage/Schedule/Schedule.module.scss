@@ -15,7 +15,6 @@
     border-radius: 16px;
     padding: 2px;
     margin-bottom: 24px;
-    flex-wrap: wrap;
 }
 .date {
     display: flex;
@@ -48,4 +47,10 @@
 .date > input:checked ~ label {
     background-color: $primary;
     color: #ffffff;
+}
+@media (max-width: 769px){
+    .dates{
+        overflow-x: scroll;
+        width: 100%;
+    }
 }

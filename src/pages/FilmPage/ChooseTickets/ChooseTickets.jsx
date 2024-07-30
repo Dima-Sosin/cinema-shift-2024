@@ -1,10 +1,9 @@
-import styles from "./Hall.module.scss";
+import styles from "./ChooseTickets.module.scss";
 import { useState } from "react";
 import { Place } from "@components/Place/Place";
 import { TicketInf } from "../TicketInf/TicketInf";
-import { observer } from "mobx-react-lite";
 
-export const Hall = ({ date, seance }) => {
+export const ChooseTickets = ({ date, seance }) => {
     const [places, setPlaces] = useState([]);
     const [sum, setSum] = useState(0);
 
@@ -53,39 +52,54 @@ export const Hall = ({ date, seance }) => {
     };
 
     return (
-        <section className={styles.hall}>
+        <section className={styles.choose_tickets}>
             <h2>Выбор места</h2>
             <div className={styles.choice_place}>
-                <div className={styles.room}>
-                    <span className={styles.screen_title}>Экран</span>
-                    <div className={styles.screen} />
-                    <span className={styles.row_title}>Ряд</span>
-                    <ul>
-                        {seance.hall.places.map((row, i) => (
-                            <li className={styles.row} key={i}>
-                                <span className={styles.row_name}>{i + 1}</span>
-                                <ul>
-                                    {row.map((place, j) => (
-                                        <Place
-                                            code={j}
-                                            row={i + 1}
-                                            number={j + 1}
-                                            type={place.type}
-                                            onClick={event =>
-                                                addDeletePlaces(
-                                                    event.target.checked,
-                                                    i + 1,
-                                                    j + 1,
-                                                    place.price
-                                                )
-                                            }
-                                        />
-                                    ))}
-                                </ul>
+                <div className={styles.hall_plan}>
+
+                    <ul className={styles.row_numbers}>
+                        <p className={styles.row_title}>Ряд</p>
+                        {seance.hall.places.map((_, i) => (
+                            <li key={i}>
+                                <p className={styles.row_name}>{i + 1}</p>
                             </li>
                         ))}
                     </ul>
+
+                    <div className={styles.hall}>
+                        <p className={styles.screen_title}>Экран</p>
+                        <div className={styles.screen} />
+
+                        <ul className={styles.rows}>
+                            {seance.hall.places.map((row, i) => (
+                                <li className={styles.row} key={i}>
+                                    <ul className={styles.places}>
+                                        {row.map((place, j) => (
+                                            <li key={j}>
+                                                <Place
+                                                    row={i + 1}
+                                                    number={j + 1}
+                                                    type={place.type}
+                                                    onClick={event =>
+                                                        addDeletePlaces(
+                                                            event.target.checked,
+                                                            i + 1,
+                                                            j + 1,
+                                                            place.price
+                                                        )
+                                                    }
+                                                />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
+
+                    </div>
+                    
                 </div>
+
                 <TicketInf
                     date={date}
                     seance={seance}

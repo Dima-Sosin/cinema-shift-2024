@@ -1,7 +1,7 @@
 import styles from "./Place.module.scss";
 
-export const Place = ({ code, row, number, type, onClick }) => (
-    <li className={styles.place} key={code}>
+export const Place = ({ row, number, type, onClick }) => (
+    <div className={styles.place}>
         <input
             type="checkbox"
             id={String(row) + String(number)}
@@ -9,5 +9,5 @@ export const Place = ({ code, row, number, type, onClick }) => (
             onClick={onClick}
         />
         <label htmlFor={String(row) + String(number)}>{number}</label>
-    </li>
+    </div>
 );
