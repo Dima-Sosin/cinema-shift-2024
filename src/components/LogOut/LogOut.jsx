@@ -16,10 +16,10 @@ export const LogOut = ({ onClose, setIsAuth }) => {
                 <QuestionIcon />
                 <h3>Вы действительно хотите выйти?</h3>
                 <div className={styles.buttons}>
-                    <Button type="default" onClick={onClose}>
+                    <Button view="default" onClick={onClose}>
                         Отменить
                     </Button>
-                    <Button type="primary" onClick={() => onClick()}>
+                    <Button view="primary" onClick={() => onClick()}>
                         Выйти
                     </Button>
                 </div>

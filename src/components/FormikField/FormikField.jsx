@@ -23,6 +23,7 @@ export const FormikField = ({
                     id={name}
                     placeholder={placeholder}
                     readOnly={readOnly}
+                    autoComplete="on"
                     {...formikField.field}
                 />
                 <ErrorMessage name={name}>

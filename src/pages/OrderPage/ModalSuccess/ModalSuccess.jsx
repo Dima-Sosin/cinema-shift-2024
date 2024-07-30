@@ -30,11 +30,15 @@ export const ModalSuccess = ({ response, onClose }) => (
 
                 <div className={styles.section}>
                     <p className={styles.section_title}>Места</p>
-                    {userData.tickets.map(place => (
-                        <p>
-                            Ряд: {place.row}, Место: {place.column}
-                        </p>
-                    ))}
+                    <ul>
+                        {userData.tickets.map((place, i) => (
+                            <li key={i}>
+                                <p>
+                                    Ряд: {place.row}, Место: {place.column}
+                                </p>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
 
                 <span className={styles.section_title}>

@@ -36,7 +36,7 @@ export function Poster({ film }) {
                 kin={film.userRatings.kinopoisk}
                 imdb={film.userRatings.imdb}
             />
-            <Button type="primary">Подробнее</Button>
+            <Button view="primary">Подробнее</Button>
         </div>
     );
 }

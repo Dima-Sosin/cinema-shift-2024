@@ -6,6 +6,7 @@ import { TicketInf } from "../TicketInf/TicketInf";
 export const ChooseTickets = ({ date, seance }) => {
     const [places, setPlaces] = useState([]);
     const [sum, setSum] = useState(0);
+    let id = 0;
 
     const addDeletePlaces = (isCheck, row, num, price) => {
         setPlaces(prevPlaces => {
@@ -76,7 +77,7 @@ export const ChooseTickets = ({ date, seance }) => {
                                         {row.map((place, j) => (
                                             <li key={j}>
                                                 <Place
-                                                    row={i + 1}
+                                                    id={id++}
                                                     number={j + 1}
                                                     type={place.type}
                                                     onClick={event =>

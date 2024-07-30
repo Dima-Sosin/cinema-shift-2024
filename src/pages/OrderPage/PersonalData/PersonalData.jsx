@@ -106,7 +106,9 @@ export const PersonalData = () => {
                                 name="city"
                                 placeholder="Город"
                             />
-                            <Button type="primary">Продолжить</Button>
+                            <Button type="submit" view="primary">
+                                Продолжить
+                            </Button>
                         </Form>
                     )}
                 </Formik>

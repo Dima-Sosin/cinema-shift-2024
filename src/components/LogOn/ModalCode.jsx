@@ -61,7 +61,7 @@ export const ModalCode = ({ onClose, setIsAuth, phone }) => {
                                 name="code"
                                 placeholder="Проверочный код"
                             />
-                            <Button type="primary">Войти</Button>
+                            <Button view="primary">Войти</Button>
                         </Form>
                     )}
                 </Formik>

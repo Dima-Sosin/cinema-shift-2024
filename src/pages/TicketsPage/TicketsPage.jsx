@@ -66,7 +66,7 @@ export const TicketsPage = () => {
                             </p>
                             {order.status === "PAYED" && (
                                 <Button
-                                    type="default"
+                                    view="default"
                                     onClick={() => {
                                         setIsModal(true);
                                         setDelOrder(order._id);
@@ -84,11 +84,11 @@ export const TicketsPage = () => {
                     <QuestionIcon />
                     <h3 className={styles.modal_title}>Вернуть билет?</h3>
                     <div className={styles.modal_buttons}>
-                        <Button type="default" onClick={() => returnTicket()}>
+                        <Button view="default" onClick={() => returnTicket()}>
                             Вернуть
                         </Button>
                         <Button
-                            type="primary"
+                            view="primary"
                             onClick={() => setIsModal(false)}
                         >
                             Отменить

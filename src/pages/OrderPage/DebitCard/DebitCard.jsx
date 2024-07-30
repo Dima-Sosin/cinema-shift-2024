@@ -85,12 +85,14 @@ export const DebitCard = () => {
                         </div>
                         <div className={styles.buttons}>
                             <Button
-                                type="default"
+                                view="default"
                                 onClick={() => setPage("personalData")}
                             >
                                 Назад
                             </Button>
-                            <Button type="primary">Оплатить</Button>
+                            <Button type="submit" view="primary">
+                                Оплатить
+                            </Button>
                         </div>
                     </Form>
                 )}

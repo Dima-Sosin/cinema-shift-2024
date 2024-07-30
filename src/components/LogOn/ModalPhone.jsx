@@ -36,7 +36,7 @@ export const ModalPhone = ({ onClose, setPhone }) => {
                                 placeholder="Телефон"
                                 mask="+7 999 999 99 99"
                             />
-                            <Button type="primary">Продолжить</Button>
+                            <Button view="primary">Продолжить</Button>
                         </Form>
                     )}
                 </Formik>

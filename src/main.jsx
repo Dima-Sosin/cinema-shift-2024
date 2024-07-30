@@ -1,11 +1,7 @@
 import "./index.scss";
 
 import ReactDOM from "react-dom/client";
-import {
-    createBrowserRouter,
-    RouterProvider,
-    ScrollRestoration
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { api } from "./api/api.js";
 import { PageHeader } from "./components/PageHeader/PageHeader";
@@ -60,7 +56,18 @@ const router = createBrowserRouter([
             },
             {
                 path: "film/:filmId",
-                element: <FilmPage />
+                element: <FilmPage />,
+                loader: async ({ params }) => {
+                    let film = {};
+                    let scheduleResponse = {};
+                    await api
+                        .get("/cinema/film/" + params.filmId)
+                        .then(response => (film = response.data));
+                    await api
+                        .get("/cinema/film/" + params.filmId + "/schedule")
+                        .then(response => (scheduleResponse = response.data));
+                    return { film: film, scheduleResponse: scheduleResponse };
+                }
             }
         ]
     }

@@ -128,12 +128,16 @@ export const ProfilePage = () => {
                                     name="city"
                                     placeholder="Город"
                                 />
-                                <Button type="primary">Обновить данные</Button>
+                                <Button view="primary">Обновить данные</Button>
                                 <br />
                             </Form>
                         )}
                     </Formik>
-                    <Button type="default" onClick={() => setIsModal(true)}>
+                    <Button
+                        type="submit"
+                        view="default"
+                        onClick={() => setIsModal(true)}
+                    >
                         Выйти из аккаунта
                     </Button>
                 </>
