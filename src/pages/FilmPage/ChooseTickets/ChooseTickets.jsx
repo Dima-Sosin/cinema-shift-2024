@@ -56,7 +56,6 @@ export const ChooseTickets = ({ date, seance }) => {
             <h2>Выбор места</h2>
             <div className={styles.choice_place}>
                 <div className={styles.hall_plan}>
-
                     <ul className={styles.row_numbers}>
                         <p className={styles.row_title}>Ряд</p>
                         {seance.hall.places.map((_, i) => (
@@ -82,7 +81,8 @@ export const ChooseTickets = ({ date, seance }) => {
                                                     type={place.type}
                                                     onClick={event =>
                                                         addDeletePlaces(
-                                                            event.target.checked,
+                                                            event.target
+                                                                .checked,
                                                             i + 1,
                                                             j + 1,
                                                             place.price
@@ -95,9 +95,7 @@ export const ChooseTickets = ({ date, seance }) => {
                                 </li>
                             ))}
                         </ul>
-
                     </div>
-                    
                 </div>
 
                 <TicketInf

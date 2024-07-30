@@ -1,7 +1,11 @@
 import "./index.scss";
 
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, ScrollRestoration } from "react-router-dom";
+import {
+    createBrowserRouter,
+    RouterProvider,
+    ScrollRestoration
+} from "react-router-dom";
 
 import { api } from "./api/api.js";
 import { PageHeader } from "./components/PageHeader/PageHeader";

@@ -29,27 +29,19 @@ export const PageHeader = () => {
                             <Link className={styles.link} to="/afisha">
                                 <LogoIcon className={styles.logo_icon} />
                                 <MovieIcon className={styles.movie_icon} />
-                                <span className={`${styles.label} ${styles.afisha}`}>
+                                <span
+                                    className={`${styles.label} ${styles.afisha}`}
+                                >
                                     Афиша
                                 </span>
                             </Link>
-                            <Link
-                                className={styles.link}
-                                to="/profile"
-                            >
+                            <Link className={styles.link} to="/profile">
                                 <UserIcon />
-                                <span className={styles.label}>
-                                    Профиль
-                                </span>
+                                <span className={styles.label}>Профиль</span>
                             </Link>
-                            <Link
-                                className={styles.link}
-                                to="/tickets"
-                            >
+                            <Link className={styles.link} to="/tickets">
                                 <TicketIcon />
-                                <span className={styles.label}>
-                                    Билеты
-                                </span>
+                                <span className={styles.label}>Билеты</span>
                             </Link>
                         </div>
                         <div className={styles.right}>
