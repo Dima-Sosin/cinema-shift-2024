@@ -2,15 +2,15 @@ module.exports = {
     root: true,
     env: { browser: true, es2020: true },
     extends: [
+        "airbnb",
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
-        "plugin:prettier/recommended"
+        "prettier"
     ],
-    ignorePatterns: ["dist", ".eslintrc.cjs"],
     parserOptions: { ecmaVersion: "latest", sourceType: "module" },
     settings: { react: { version: "18.2" } },
-    plugins: ["react-refresh", "simple-import-sort"],
+    plugins: ["import", "react-refresh", "simple-import-sort", "prettier"],
     rules: {
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",

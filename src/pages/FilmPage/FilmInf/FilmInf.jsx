@@ -1,7 +1,7 @@
 import styles from "./FilmInf.module.scss";
 import { Rating } from "@components/Rating/Rating";
 import { api } from "@api";
-import { userData } from "../../../store/createData";
+import { userData } from "@store";
 import { Translation } from "@translation";
 import { useEffect } from "react";
 

@@ -2,7 +2,7 @@ import styles from "./TicketInf.module.scss";
 import { Link, useParams } from "react-router-dom";
 import { Translation } from "@translation";
 import { Button } from "@components/Button/Button";
-import { userData } from "../../../store/createData";
+import { userData } from "@store";
 
 export const TicketInf = ({ date, seance, places, sum }) => {
     const { filmId } = useParams();

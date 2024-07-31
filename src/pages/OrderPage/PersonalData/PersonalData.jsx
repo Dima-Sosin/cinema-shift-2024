@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { PageContext } from "../OrderPage";
 import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
-import { userData } from "../../../store/createData";
+import { userData } from "@store";
 import { toJS } from "mobx";
 import { Form, Formik } from "formik";
 import * as yup from "yup";

@@ -1,14 +1,14 @@
 import styles from "./DebitCard.module.scss";
 import { useState, useContext } from "react";
+import { toJS } from "mobx";
+import { Form, Formik } from "formik";
+import * as yup from "yup";
 import { PageContext } from "../OrderPage";
 import { FormikField } from "@components/FormikField/FormikField";
 import { Button } from "@components/Button/Button";
 import { ModalSuccess } from "../ModalSuccess/ModalSuccess";
-import { userData } from "../../../store/createData";
+import { userData } from "@store";
 import { api } from "@api";
-import { toJS } from "mobx";
-import { Form, Formik } from "formik";
-import * as yup from "yup";
 
 export const DebitCard = () => {
     const { setPage } = useContext(PageContext);

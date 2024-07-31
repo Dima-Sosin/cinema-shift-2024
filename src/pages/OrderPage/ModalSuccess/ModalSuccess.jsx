@@ -2,7 +2,7 @@ import styles from "./ModalSuccess.module.scss";
 import { Link } from "react-router-dom";
 import { SuccessIcon } from "@assets/SuccessIcon";
 import { Modal } from "@components/Modal/Modal";
-import { userData } from "../../../store/createData";
+import { userData } from "@store";
 
 export const ModalSuccess = ({ response, onClose }) => (
     <Modal onClose={() => onClose()}>
