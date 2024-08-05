@@ -1,8 +1,10 @@
 import styles from "./Poster.module.scss";
+
 import { useNavigate } from "react-router-dom";
-import { Rating } from "@components/Rating/Rating";
-import { Button } from "@components/Button/Button";
+
 import { api } from "@api";
+import { Button } from "@components/Button/Button";
+import { Rating } from "@components/Rating/Rating";
 
 export function Poster({ film }) {
     const navigate = useNavigate();
@@ -14,7 +16,7 @@ export function Poster({ film }) {
     };
 
     const filmPage = () => {
-        navigate("/film/" + film.id, { replace: false });
+        navigate(`/film/${film.id}`, { replace: false });
     };
 
     return (
@@ -27,7 +29,7 @@ export function Poster({ film }) {
                 <div className={styles.block}>
                     <p className={styles.genre}>{film.genres[0]}</p>
                     <p className={styles.country}>
-                        {film.country.name}, {year()}
+                        {film.country.name},{year()}
                     </p>
                 </div>
             </div>

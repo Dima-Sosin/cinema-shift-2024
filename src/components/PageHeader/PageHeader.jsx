@@ -1,15 +1,17 @@
 import styles from "./PageHeader.module.scss";
+
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { LogoIcon } from "@assets/LogoIcon";
-import { UserIcon } from "@assets/UserIcon";
-import { TicketIcon } from "@assets/TicketIcon";
-import { ExitIcon } from "@assets/ExitIcon";
-import { LogOn } from "../LogOn/LogOn";
-import { LogOut } from "../LogOut/LogOut";
-import { MovieIcon } from "../../assets/MovieIcon";
 
-export const PageHeader = () => {
+import { ExitIcon } from "@assets/ExitIcon";
+import { LogoIcon } from "@assets/LogoIcon";
+import { MovieIcon } from "@assets/MovieIcon";
+import { TicketIcon } from "@assets/TicketIcon";
+import { UserIcon } from "@assets/UserIcon";
+import { LogOn } from "@components/LogOn/LogOn";
+import { LogOut } from "@components/LogOut/LogOut";
+
+export function PageHeader() {
     const [isModal, setIsModal] = useState(false);
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
 
@@ -62,4 +64,4 @@ export const PageHeader = () => {
             <Outlet />
         </>
     );
-};
+}

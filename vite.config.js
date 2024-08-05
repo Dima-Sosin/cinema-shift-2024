@@ -10,6 +10,7 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
             "@api": path.resolve(__dirname, "./src/api/api"),
             "@assets": path.resolve(__dirname, "./src/assets"),
+            "@store": path.resolve(__dirname, "./src/store/createData"),
             "@components": path.resolve(__dirname, "./src/components"),
             "@translation": path.resolve(
                 __dirname,

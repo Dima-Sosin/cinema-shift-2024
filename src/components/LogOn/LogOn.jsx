@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
-import { ModalPhone } from "./ModalPhone";
+
 import { ModalCode } from "./ModalCode";
+import { ModalPhone } from "./ModalPhone";
 
 export const ModalContext = createContext("phone");
 
-export const LogOn = ({ onClose, setIsAuth }) => {
+export function LogOn({ onClose, setIsAuth }) {
     const [modal, setModal] = useState("phone");
     const [phone, setPhone] = useState("");
 
@@ -20,4 +21,4 @@ export const LogOn = ({ onClose, setIsAuth }) => {
             {Modals[modal]}
         </ModalContext.Provider>
     );
-};
+}

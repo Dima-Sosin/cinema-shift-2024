@@ -1,10 +1,12 @@
 import styles from "./TicketInf.module.scss";
-import { Link, useParams } from "react-router-dom";
-import { Translation } from "@translation";
-import { Button } from "@components/Button/Button";
-import { userData } from "../../../store/createData";
 
-export const TicketInf = ({ date, seance, places, sum }) => {
+import { Link, useParams } from "react-router-dom";
+
+import { Button } from "@components/Button/Button";
+import { userData } from "@store";
+import { Translation } from "@translation";
+
+export function TicketInf({ date, seance, places, sum }) {
     const { filmId } = useParams();
 
     const addFilm = () => {
@@ -28,7 +30,7 @@ export const TicketInf = ({ date, seance, places, sum }) => {
             <div className={styles.block}>
                 <span className={styles.title}>Дата и время</span>
                 <div className={styles.inf}>
-                    {date}, {seance.time}
+                    {date},{seance.time}
                 </div>
             </div>
             <div className={styles.block}>
@@ -48,7 +50,10 @@ export const TicketInf = ({ date, seance, places, sum }) => {
                 </div>
             </div>
             <div className={styles.block}>
-                <div className={styles.price}>Сумма: {sum} ₽</div>
+                <div className={styles.price}>
+                    Сумма:
+                    {sum} ₽
+                </div>
             </div>
             <Link to="/order">
                 <Button view="primary" onClick={() => addFilm()}>
@@ -57,4 +62,4 @@ export const TicketInf = ({ date, seance, places, sum }) => {
             </Link>
         </div>
     );
-};
+}

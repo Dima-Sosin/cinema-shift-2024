@@ -1,13 +1,15 @@
-import styles from "./Schedule.module.scss";
 import { useState } from "react";
+
 import { Times } from "@components/Times/Times";
+import styles from "./Schedule.module.scss";
+
 import { ChooseTickets } from "../ChooseTickets/ChooseTickets";
 
-export const Schedule = ({ schedules }) => {
+export function Schedule({ schedules }) {
     const [schedule, setSchedule] = useState(schedules[0]);
     const [seance, setSeance] = useState(schedules[0].seances[0]);
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
         document.getElementsByName("date")[0].checked = true;
         document.getElementsByName("time")[0].checked = true;
     });
@@ -38,7 +40,7 @@ export const Schedule = ({ schedules }) => {
                     <span className={styles.subtitle}>Красный зал</span>
                     <Times
                         seances={schedule.seances}
-                        hall={"Red"}
+                        hall="Red"
                         onClick={seance => {
                             setSeance(seance);
                         }}
@@ -48,7 +50,7 @@ export const Schedule = ({ schedules }) => {
                     <span className={styles.subtitle}>Зеленый зал</span>
                     <Times
                         seances={schedule.seances}
-                        hall={"Green"}
+                        hall="Green"
                         onClick={seance => {
                             setSeance(seance);
                         }}
@@ -58,7 +60,7 @@ export const Schedule = ({ schedules }) => {
                     <span className={styles.subtitle}>Синий зал</span>
                     <Times
                         seances={schedule.seances}
-                        hall={"Blue"}
+                        hall="Blue"
                         onClick={seance => {
                             setSeance(seance);
                         }}
@@ -68,4 +70,4 @@ export const Schedule = ({ schedules }) => {
             <ChooseTickets date={schedule.date} seance={seance} />
         </>
     );
-};
+}

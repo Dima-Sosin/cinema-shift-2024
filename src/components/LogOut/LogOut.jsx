@@ -1,9 +1,10 @@
+import { QuestionIcon } from "@assets/QuestionIcon";
 import styles from "./LogOut.module.scss";
+
 import { Button } from "../Button/Button";
 import { Modal } from "../Modal/Modal";
-import { QuestionIcon } from "@assets/QuestionIcon";
 
-export const LogOut = ({ onClose, setIsAuth }) => {
+export function LogOut({ onClose, setIsAuth }) {
     const onClick = () => {
         localStorage.removeItem("token");
         setIsAuth(!!localStorage.getItem("token"));
@@ -27,4 +28,4 @@ export const LogOut = ({ onClose, setIsAuth }) => {
             </div>
         </Modal>
     );
-};
+}

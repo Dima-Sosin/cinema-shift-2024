@@ -1,7 +1,7 @@
-import styles from "./ErrorPage.module.scss";
 import { useRouteError } from "react-router-dom";
+import styles from "./ErrorPage.module.scss";
 
-export const ErrorPage = () => {
+export function ErrorPage() {
     const error = useRouteError();
     console.error(error);
     return (
@@ -13,4 +13,4 @@ export const ErrorPage = () => {
             <p className={styles.error_subtitle}>Вернитесь позднее.</p>
         </div>
     );
-};
+}

@@ -10,7 +10,8 @@
         "lint:write": "eslint --debug src/ --fix",
         "prettier": "prettier . --write",
         "preview": "vite preview",
-        "prepare": "husky"
+        "prepare": "husky",
+        "lint-staged": "lint-staged"
     },
     "dependencies": {
         "axios": "^1.7.2",
@@ -29,16 +30,14 @@
         "@types/react": "^18.2.43",
         "@types/react-dom": "^18.2.17",
         "@vitejs/plugin-react": "^4.2.1",
-        "eslint": "^9.7.0",
+        "eslint": "^8.57.0",
         "eslint-config-airbnb": "^19.0.4",
-        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-import": "^2.29.1",
-        "eslint-plugin-prettier": "^5.2.1",
         "eslint-plugin-react": "^7.35.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.5",
         "eslint-plugin-simple-import-sort": "^12.1.1",
-        "globals": "^15.8.0",
         "husky": "^9.1.1",
         "lint-staged": "^15.2.7",
         "prettier": "3.2.4",
@@ -50,9 +49,11 @@
         }
     },
     "lint-staged": {
-        "*.(json,js,jsx,scss,css)": [
-            "prettier --write --ignore-unknown",
-            "eslint --debug src/ --fix"
+        "*.scss": [
+            "prettier --write"
+        ],
+        "*.{json,jsx,js}": [
+            "prettier --write"
         ]
     }
 }

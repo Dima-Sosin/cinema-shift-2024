@@ -1,16 +1,18 @@
+import styles from "./ProfilePage.module.scss";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { api } from "@api";
-import { PageLayout } from "@components/PageLayout/PageLayout";
-import { LogOn } from "@components/LogOn/LogOn";
-import { LogOut } from "@components/LogOut/LogOut";
-import { useLoaderData } from "react-router-dom";
-import { Button } from "@components/Button/Button";
-import { FormikField } from "@components/FormikField/FormikField";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as yup from "yup";
 
-export const ProfilePage = () => {
+import { api } from "@api";
+import { Button } from "@components/Button/Button";
+import { FormikField } from "@components/FormikField/FormikField";
+import { LogOn } from "@components/LogOn/LogOn";
+import { LogOut } from "@components/LogOut/LogOut";
+import { PageLayout } from "@components/PageLayout/PageLayout";
+
+export function ProfilePage() {
     const data = useLoaderData();
     const nav = useNavigate();
 
@@ -113,7 +115,7 @@ export const ProfilePage = () => {
                                 type="text"
                                 name="phone"
                                 placeholder="Телефон"
-                                readOnly={true}
+                                readOnly
                             />
                             <FormikField
                                 label="Email"
@@ -135,10 +137,14 @@ export const ProfilePage = () => {
                     )}
                 </Formik>
             )}
-            <Button view="default" onClick={() => setIsModal(true)}>
+            <Button
+                className={styles.button}
+                view="default"
+                onClick={() => setIsModal(true)}
+            >
                 {isAuth ? "Выйти из аккаунта" : "Войти в аккаунт"}
             </Button>
             {isModal && Modal[isAuth]}
         </PageLayout>
     );
-};
+}
