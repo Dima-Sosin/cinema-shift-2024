@@ -1,9 +1,11 @@
-import styles from "./ChooseTickets.module.scss";
 import { useState } from "react";
+
 import { Place } from "@components/Place/Place";
+import styles from "./ChooseTickets.module.scss";
+
 import { TicketInf } from "../TicketInf/TicketInf";
 
-export const ChooseTickets = ({ date, seance }) => {
+export function ChooseTickets({ date, seance }) {
     const [places, setPlaces] = useState([]);
     const [sum, setSum] = useState(0);
     let id = 0;
@@ -13,7 +15,7 @@ export const ChooseTickets = ({ date, seance }) => {
             let updatedPlaces = [...prevPlaces];
             if (isCheck) {
                 // Проверка, есть ли уже элемент с таким `row`
-                let existingPlace = updatedPlaces.find(
+                const existingPlace = updatedPlaces.find(
                     place => place.row === row
                 );
                 if (existingPlace) {
@@ -24,12 +26,12 @@ export const ChooseTickets = ({ date, seance }) => {
                     }
                 } else {
                     // Если нет, добавляем новый объект с `row` и `num`
-                    updatedPlaces.push({ row: row, num: [num] });
+                    updatedPlaces.push({ row, num: [num] });
                 }
                 setSum(sum + price);
             } else {
                 // Найти объект с совпадающими `row` и `num`
-                let existingPlace = updatedPlaces.find(
+                const existingPlace = updatedPlaces.find(
                     place => place.row === row
                 );
                 if (existingPlace) {
@@ -108,4 +110,4 @@ export const ChooseTickets = ({ date, seance }) => {
             </div>
         </section>
     );
-};
+}

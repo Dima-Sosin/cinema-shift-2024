@@ -1,21 +1,19 @@
-import styles from "./TicketsPage.module.scss";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { PageLayout } from "@components/PageLayout/PageLayout";
+
+import { api } from "@api";
+import { QuestionIcon } from "@assets/QuestionIcon";
 import { Button } from "@components/Button/Button";
 import { Modal } from "@components/Modal/Modal";
-import { LogOn } from "@components/LogOn/LogOn";
-import { QuestionIcon } from "@assets/QuestionIcon";
-import { api } from "@api";
+import { PageLayout } from "@components/PageLayout/PageLayout";
+import styles from "./TicketsPage.module.scss";
+
 import { Translation } from "../../translation/translation";
 
-export const TicketsPage = () => {
+export function TicketsPage() {
     const data = useLoaderData();
     const [delOrder, setDelOrder] = useState("");
     const [isModal, setIsModal] = useState(false);
-    const [isLog, setIsLog] = useState(false);
-
-    const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
 
     const returnTicket = () => {
         api.put("/cinema/orders/cancel", { orderId: delOrder }).then(response =>
@@ -82,14 +80,6 @@ export const TicketsPage = () => {
                     ))}
                 </ul>
             )}
-            {!data && (
-                <Button view="default" onClick={() => setIsLog(true)}>
-                    Войти в аккаунт
-                </Button>
-            )}
-            {isLog && (
-                <LogOn onClose={() => setIsLog(false)} setIsAuth={setIsAuth} />
-            )}
             {isModal && (
                 <Modal onClose={() => setIsModal(false)}>
                     <QuestionIcon />
@@ -109,4 +99,4 @@ export const TicketsPage = () => {
             )}
         </PageLayout>
     );
-};
+}

@@ -1,9 +1,12 @@
 import styles from "./AfishaPage.module.scss";
-import { useLoaderData, ScrollRestoration } from "react-router-dom";
-import { Poster } from "./Poster/Poster";
+
+import { ScrollRestoration, useLoaderData } from "react-router-dom";
+
 import { PageLayout } from "../../components/PageLayout/PageLayout";
 
-export const AfishaPage = () => {
+import { Poster } from "./Poster/Poster";
+
+export function AfishaPage() {
     const data = useLoaderData();
     return (
         <PageLayout>
@@ -20,4 +23,4 @@ export const AfishaPage = () => {
             <ScrollRestoration />
         </PageLayout>
     );
-};
+}

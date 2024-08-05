@@ -1,16 +1,19 @@
 import styles from "./DebitCard.module.scss";
-import { useState, useContext } from "react";
-import { toJS } from "mobx";
-import { Form, Formik } from "formik";
-import * as yup from "yup";
-import { PageContext } from "../OrderPage";
-import { FormikField } from "@components/FormikField/FormikField";
-import { Button } from "@components/Button/Button";
-import { ModalSuccess } from "../ModalSuccess/ModalSuccess";
-import { userData } from "@store";
-import { api } from "@api";
 
-export const DebitCard = () => {
+import { useContext, useState } from "react";
+import { Form, Formik } from "formik";
+import { toJS } from "mobx";
+import * as yup from "yup";
+
+import { api } from "@api";
+import { Button } from "@components/Button/Button";
+import { FormikField } from "@components/FormikField/FormikField";
+import { userData } from "@store";
+
+import { ModalSuccess } from "../ModalSuccess/ModalSuccess";
+import { PageContext } from "../OrderPage";
+
+export function DebitCard() {
     const { setPage } = useContext(PageContext);
     const [isModal, setIsModal] = useState(false);
     const [response, setResponse] = useState({});
@@ -37,7 +40,10 @@ export const DebitCard = () => {
     };
 
     const validationSchema = yup.object({
-        pan: yup.string().required("Обязательное поле!"),
+        pan: yup
+            .string()
+            .matches(/^[0-9]{4} [0-9]{4}$/, "Обязательное поле!")
+            .required("Обязательное поле!"),
         expireDate: yup
             .string()
             .matches(
@@ -45,7 +51,10 @@ export const DebitCard = () => {
                 "Неправильная дата!"
             )
             .required("Обязательное поле!"),
-        cvv: yup.string().required("Обязательное поле!")
+        cvv: yup
+            .string()
+            .matches(/^[0-9]{3}$/, "Обязательное поле!")
+            .required("Обязательное поле!")
     });
 
     return (
@@ -105,4 +114,4 @@ export const DebitCard = () => {
             )}
         </>
     );
-};
+}

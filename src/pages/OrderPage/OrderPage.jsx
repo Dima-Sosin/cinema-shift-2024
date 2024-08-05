@@ -1,11 +1,13 @@
 import { createContext, useState } from "react";
+
 import { PageLayout } from "@components/PageLayout/PageLayout";
-import { PersonalData } from "./PersonalData/PersonalData";
+
 import { DebitCard } from "./DebitCard/DebitCard";
+import { PersonalData } from "./PersonalData/PersonalData";
 
 export const PageContext = createContext("personalData");
 
-export const OrderPage = () => {
+export function OrderPage() {
     const [page, setPage] = useState("personalData");
     const Pages = {
         personalData: <PersonalData />,
@@ -18,4 +20,4 @@ export const OrderPage = () => {
             </PageContext.Provider>
         </PageLayout>
     );
-};
+}

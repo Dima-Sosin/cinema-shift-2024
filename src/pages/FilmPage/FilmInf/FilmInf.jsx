@@ -1,9 +1,11 @@
 import styles from "./FilmInf.module.scss";
-import { Rating } from "@components/Rating/Rating";
+
+import { useEffect } from "react";
+
 import { api } from "@api";
+import { Rating } from "@components/Rating/Rating";
 import { userData } from "@store";
 import { Translation } from "@translation";
-import { useEffect } from "react";
 
 export function FilmInf({ film }) {
     useEffect(() => {
@@ -26,7 +28,7 @@ export function FilmInf({ film }) {
                 <div className={styles.block}>
                     <p className={styles.genre}>{film.genres[0]}</p>
                     <p className={styles.country}>
-                        {film.country.name}, {year()}
+                        {film.country.name},{year()}
                     </p>
                 </div>
             </div>

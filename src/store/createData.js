@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
-export const createData = () => {
-    return makeAutoObservable({
+export const createData = () =>
+    makeAutoObservable({
         filmName: "",
         filmId: "",
         person: {},
@@ -22,12 +22,11 @@ export const createData = () => {
             this.debitCard = card;
         },
         addSeance(date, time) {
-            this.seance = { date: date, time: time };
+            this.seance = { date, time };
         },
         addTicket(row, column) {
-            this.tickets = [...this.tickets, { row: row, column: column }];
+            this.tickets = [...this.tickets, { row, column }];
         }
     });
-};
 
 export const userData = createData();

@@ -1,15 +1,17 @@
 import {
-    useNavigate,
     ScrollRestoration,
-    useLoaderData
+    useLoaderData,
+    useNavigate
 } from "react-router-dom";
+
+import { BackIcon } from "@assets/BackIcon";
+import { Button } from "@components/Button/Button";
 import { PageLayout } from "@components/PageLayout/PageLayout";
+
 import { FilmInf } from "./FilmInf/FilmInf";
 import { Schedule } from "./Schedule/Schedule";
-import { Button } from "@components/Button/Button";
-import { BackIcon } from "@assets/BackIcon";
 
-export const FilmPage = () => {
+export function FilmPage() {
     const data = useLoaderData();
     const nav = useNavigate();
 
@@ -24,4 +26,4 @@ export const FilmPage = () => {
             <ScrollRestoration />
         </PageLayout>
     );
-};
+}
